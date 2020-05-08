@@ -4,8 +4,6 @@ alias k='kubectl'
 alias kn='kubectl config set-context --current --namespace '
 
 # Misc
-#alias config='/usr/bin/git --git-dir=/home/ben/.cfg/ --work-tree=/home/ben'
-#alias backup='config add . && config commit -m "Back up $(date)" && config push'
 alias wsl-ip="ip addr show eth0 | grep \"inet 1\" | awk '{print \$2}' | cut -d/ -f1"
 alias start-docker='sudo /etc/init.d/docker start'
 alias stop-docker='sudo /etc/init.d/docker stop'

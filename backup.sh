@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/ben/.dotfiles
+cd $HOME/.dotfiles
 
 git add .
 git commit -m "`date`"
