@@ -1,11 +1,12 @@
 #!/bin/sh
 
 # Create symlinks for all dotfiles and bin directory
-for f in .zshrc .zshenv .p10k.zsh .gitconfig .profile .bashrc .myaliases .secrets.sh bin
+for f in .zshrc .zshenv .p10k.zsh .gitconfig .profile .bashrc .aliases.sh .secrets.sh .banner.sh bin
 do
-  rm $HOME/$f > /dev/null
+  rm $HOME/$f 2> /dev/null
   ln -s $HOME/.dotfiles/$f $HOME/$f
 done
+exit
 
 # Enable oh-my-zsh and p10k
 if test -f "/bin/zsh"; then
@@ -14,4 +15,4 @@ if test -f "/bin/zsh"; then
 fi
 
 # Clone my setup scripts
-git clone https://github.com/benc-uk/ubuntu-tools-install.git $HOME/setup
+git clone https://github.com/benc-uk/ubuntu-tools-install.git $HOME/tools
