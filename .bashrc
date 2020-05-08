@@ -138,5 +138,5 @@ if command -v az > /dev/null; then source /etc/bash_completion.d/azure-cli; fi
 # Login banner thing ==============
 if [ -f $HOME/.banner.sh ]; then source $HOME/.banner.sh; fi
 
-# Login banner thing ==============
+# Local overrides and post steps ==============
 if [ -f $HOME/.bashrc.local ]; then source $HOME/.bashrc.local; fi
