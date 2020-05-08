@@ -121,7 +121,7 @@ fi
 ###################################
 
 # Fix fs.inotify.max_user_watches
-sudo sysctl -p > /dev/null
+#sudo sysctl -p > /dev/null
 
 # LS_COLORS
 LS_COLORS="ow=35:ln=31:di=32"
