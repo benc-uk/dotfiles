@@ -13,7 +13,6 @@ do
   rm $HOME/$f 2> /dev/null
   ln -s $HOME/.dotfiles/$f $HOME/$f
 done
-exit
 
 # Clone my setup scripts
 echo "### Cloning tools repo to $HOME/tools"
