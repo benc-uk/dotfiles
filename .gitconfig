@@ -1,0 +1,10 @@
+[credential]
+	helper = /mnt/c/Tools/gcmw-v1.20.0/git-credential-manager.exe
+[user]
+	email = benc.uk@gmail.com
+	name = Ben Coleman
+#	signingkey = 0C1060479F8EC0F1
+[push]
+	default = simple
+#[commit]
+#	gpgsign = true

@@ -1,0 +1,4 @@
+export DISPLAY=192.168.0.53:0
+#export LIBGL_ALWAYS_INDIRECT=1
+startxfce4
+
