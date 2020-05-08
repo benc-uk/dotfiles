@@ -63,3 +63,6 @@ if [ -f $HOME/.banner.sh ]; then source $HOME/.banner.sh; fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Local overrides and post steps ==============
+if [ -f $HOME/.rc.local ]; then source $HOME/.rc.local; fi
