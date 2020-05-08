@@ -55,8 +55,8 @@ source $HOME/.myaliases
 FILE=$HOME/.secrets.sh ; [ -f $FILE ] && . $FILE
 
 # Auto complete ====================
-source <(kubectl completion zsh)
-source /etc/bash_completion.d/azure-cli
+if command -v kubectl > /dev/null; then source <(kubectl completion zsh); fi
+if command -v az > /dev/null; then source /etc/bash_completion.d/azure-cli; fi
 
 # Cheesey login banner thing ==============
 ip=$(ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)
