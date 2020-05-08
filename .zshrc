@@ -6,7 +6,7 @@
 # fi
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/ben/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load 
 #ZSH_THEME="powerlevel9k/powerlevel9k"
