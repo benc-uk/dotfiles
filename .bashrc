@@ -127,21 +127,13 @@ sudo sysctl -p > /dev/null
 LS_COLORS="ow=35:ln=31:di=32"
 export LS_COLORS
 
-# Extra Alias ======================
-source $HOME/.myaliases
-FILE=$HOME/.secrets.sh ; [ -f $FILE ] && . $FILE
+# Extra aliases & secrets ======================
+if [ -f $HOME/.aliases.sh ]; then source $HOME/.aliases.sh; fi
+if [ -f $HOME/.secrets.sh ]; then source $HOME/.secrets.sh; fi
 
 # Auto complete ====================
-source <(kubectl completion zsh)
-source /etc/bash_completion.d/azure-cli
+if command -v kubectl > /dev/null; then source <(kubectl completion zsh); fi
+if command -v az > /dev/null; then source /etc/bash_completion.d/azure-cli; fi
 
-# Cheesey login banner thing ==============
-ip=$(ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)
-echo -e "\e[96m╔═══════════════════════════════════════════════════════"
-echo -e "\e[96m║ \e[38;5;82m$(lsb_release -ds) 🍺"
-echo -e "\e[96m║ \e[38;5;45mOh My Zsh \e[38;5;255m& \e[38;5;201mPowerlevel10K 🚀"
-if [ ! -z $WSL_INTEROP ]; then echo -e "\e[96m║ \e[38;5;214mWindows Subsystem For Linux v2 🐱‍🔥"; fi
-echo -e "\e[96m╠═══════════════════════════════════════════════════════"
-echo -e "\e[96m║ \e[1;37meth0 IP:\t\e[0;34m$ip"
-echo -e "\e[96m║ \e[1;37mKernel:\t\e[0;33m$(uname -r)"
-echo -e "\e[96m╚═══════════════════════════════════════════════════════"
+# Login banner thing ==============
+if [ -f $HOME/.banner.sh ]; then source $HOME/.banner.sh; fi
