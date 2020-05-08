@@ -2,7 +2,7 @@
 # Enable oh-my-zsh and p10k
 if [ -f "/bin/zsh" ]; then
   echo "### Zsh detected, setting up oh-my-zsh and powerlevel10k"
-  sh -c "$(wget -O- https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  sh ohmyzsh.sh --unattended
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
 fi
 
