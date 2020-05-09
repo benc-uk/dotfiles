@@ -45,7 +45,7 @@ __prompt_command() {
     PS1+="\e[48;5;19m 📂\e[38;5;189m\W \e[38;5;24m▓"
     if (( $(tput cols) > 80 )); then
       PS1+="\e[48;5;24m $(__azure_sub) "
-      if kubectl > /dev/null ; then
+      if [ -f "$HOME/.kube/config" ]; then
         PS1+="$(kube_ps1)"
       fi
       PS1+=" \e[38;5;22m▓"
