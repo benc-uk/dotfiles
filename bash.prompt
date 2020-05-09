@@ -1,0 +1,58 @@
+PROMPT_COMMAND=__prompt_command
+
+source $HOME/.dotfiles/lib/kube-ps1.sh
+
+function __git_color {
+  local git_status="$(git status --porcelain  2> /dev/null | wc -l)"
+
+  if (( $git_status > 0)); then
+    echo -e "\e[38;5;220m" 
+  else
+    echo -e "\e[38;5;76m"
+  fi
+}
+
+function __git_branch {
+  local git_status="$(git status 2> /dev/null)"
+  local on_branch="On branch ([^${IFS}]*)"
+  local on_commit="HEAD detached at ([^${IFS}]*)"
+
+  if [[ $git_status =~ $on_branch ]]; then
+    local branch=${BASH_REMATCH[1]}
+    echo "🌳 $branch"
+  elif [[ $git_status =~ $on_commit ]]; then
+    local commit=${BASH_REMATCH[1]}
+    echo " $commit"
+  fi
+}
+
+function __azure_sub {
+  local azsub="$(az account show --query name -o tsv 2> /dev/null)"
+  if [[ ! -z "$azsub" ]]; then
+    echo "\e[38;5;15m☁ \e[38;5;87m$azsub"
+  fi
+}
+
+KUBE_PS1_SEPARATOR=" "
+KUBE_PS1_PREFIX=""
+KUBE_PS1_SUFFIX=""
+KUBE_PS1_SYMBOL_DEFAULT="🐳"
+KUBE_PS1_CTX_COLOR="155"
+KUBE_PS1_NS_COLOR="155"
+__prompt_command() {
+    local e="$?"
+    PS1="\e[48;5;237m \e[38;5;220m\u\e[38;5;251m@\e[38;5;208m\h \e[38;5;19m▓"
+    PS1+="\e[48;5;19m 📂\e[38;5;189m\W \e[38;5;24m▓"
+    if (( $(tput cols) > 80 )); then
+      PS1+="\e[48;5;24m $(__azure_sub) "
+      PS1+="$(kube_ps1) \e[38;5;22m▓"
+    fi
+    PS1+="\e[48;5;22m $(__git_color)$(__git_branch) \e[0m\e[38;5;22m▓\e[0m"
+    
+    if [ $e != 0 ]; then
+        PS1+="\[\e[0m\]\e[38;5;197m ${e} 😟 "
+    else
+        PS1+="\e[0m\e[38;5;76m"
+    fi
+    PS1+="\n❯ \e[0m"
+}

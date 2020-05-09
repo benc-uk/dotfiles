@@ -8,7 +8,7 @@ fi
 
 # Create symlinks for all dotfiles and bin directory
 echo "### Creating symlinks"
-for f in .zshrc .zshenv .p10k.zsh .gitconfig .profile .bashrc .aliases.sh .secrets.sh .banner.sh bin
+for f in .zshrc .zshenv .p10k.zsh .gitconfig .profile .bashrc .aliases.sh .banner.sh bin
 do
   rm $HOME/$f 2> /dev/null
   ln -s $HOME/.dotfiles/$f $HOME/$f

@@ -132,11 +132,14 @@ if [ -f $HOME/.aliases.sh ]; then source $HOME/.aliases.sh; fi
 if [ -f $HOME/.secrets.sh ]; then source $HOME/.secrets.sh; fi
 
 # Auto complete ====================
-if command -v kubectl > /dev/null; then source <(kubectl completion zsh); fi
+if command -v kubectl > /dev/null; then source <(kubectl completion bash); fi
 if command -v az > /dev/null; then source /etc/bash_completion.d/azure-cli; fi
 
 # Login banner thing ==============
 if [ -f $HOME/.banner.sh ]; then source $HOME/.banner.sh; fi
+
+# Fancy powerlevel like prompt, remove if oyu don't like it ==============
+if [ -f $HOME/.dotfiles/bash.prompt ]; then source $HOME/.dotfiles/bash.prompt; fi
 
 # Local overrides and post steps ==============
 if [ -f $HOME/.rc.local ]; then source $HOME/.rc.local; fi
