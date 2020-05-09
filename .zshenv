@@ -15,7 +15,7 @@ PATH="$HOME/.npm-global/bin:$HOME/bin:$HOME/.local/bin:$PATH"
 # Golang 
 # GOPATH is left as default $HOME/go 
 # Add GOPATH/bin and /usr/local/go/bin to system path
-PATH="$(go env GOPATH)/bin:$(go env GOROOT)/bin:$PATH" 
+PATH="$HOME/go/bin:/usr/local/go/bin:$PATH" 
 
 # Ruby (For Jekyll) <vomit>
 export GEM_HOME="$HOME/gems"
