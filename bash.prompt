@@ -45,7 +45,10 @@ __prompt_command() {
     PS1+="\e[48;5;19m 📂\e[38;5;189m\W \e[38;5;24m▓"
     if (( $(tput cols) > 80 )); then
       PS1+="\e[48;5;24m $(__azure_sub) "
-      PS1+="$(kube_ps1) \e[38;5;22m▓"
+      if kubectl > /dev/null ; then
+        PS1+="$(kube_ps1)"
+      fi
+      PS1+=" \e[38;5;22m▓"
     fi
     PS1+="\e[48;5;22m $(__git_color)$(__git_branch) \e[0m\e[38;5;22m▓\e[0m"
     
