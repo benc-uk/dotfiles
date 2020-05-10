@@ -19,38 +19,40 @@ function __git_branch {
 
   if [[ $git_status =~ $on_branch ]]; then
     local branch=${BASH_REMATCH[1]}
-    echo "🌳 $branch"
+    echo "$SEP $(__git_color)$branch"
   elif [[ $git_status =~ $on_commit ]]; then
     local commit=${BASH_REMATCH[1]}
-    echo " $commit"
+    echo "$SEP📜 $(__git_color)$commit"
   fi
 }
 
 function __azure_sub {
   local azsub="$(az account show --query name -o tsv 2> /dev/null)"
   if [[ ! -z "$azsub" ]]; then
-    echo "\e[38;5;15m☁ \e[38;5;87m$azsub"
+    echo "$SEP\e[38;5;15m☁ \e[38;5;87m$azsub"
   fi
 }
 
+SEP=" \e[30m┃ "
+
 KUBE_PS1_SEPARATOR=" "
-KUBE_PS1_PREFIX=""
+KUBE_PS1_PREFIX="$SEP"
 KUBE_PS1_SUFFIX=""
 KUBE_PS1_SYMBOL_DEFAULT="🐳"
 KUBE_PS1_CTX_COLOR="155"
 KUBE_PS1_NS_COLOR="155"
+
 __prompt_command() {
     local e="$?"
-    PS1="\e[48;5;237m \e[38;5;220m\u\e[38;5;251m@\e[38;5;208m\h \e[38;5;19m▓"
-    PS1+="\e[48;5;19m 📂\e[38;5;189m\W \e[38;5;24m▓"
+    PS1="\e[48;5;237m 🏠 \e[38;5;220m\u\e[38;5;251m@\e[38;5;208m\h"
+    PS1+="$SEP📂 \e[38;5;252m\W"
     if (( $(tput cols) > 80 )); then
-      PS1+="\e[48;5;24m $(__azure_sub) "
+      PS1+="$(__azure_sub) "
       if [ -f "$HOME/.kube/config" ]; then
         PS1+="$(kube_ps1)"
       fi
-      PS1+=" \e[38;5;22m▓"
     fi
-    PS1+="\e[48;5;22m $(__git_color)$(__git_branch) \e[0m\e[38;5;22m▓\e[0m"
+    PS1+="$(__git_branch) \e[0m\e[38;5;22m"
     
     if [ $e != 0 ]; then
         PS1+="\[\e[0m\]\e[38;5;197m ${e} 😟 "
