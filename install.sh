@@ -8,8 +8,15 @@ echo -e "\e[38;5;214m»»» 🙊 If you have anything in these files/folders, pl
 echo -e "\e[38;5;214m»»» 🙈   \e[38;5;227m.zshrc .zshenv .bashenv .p10k.zsh .gitconfig .profile .bashrc ~/bin/ ~/tools/ ~/.oh-my-zsh"
 echo -e "\e[38;5;214m»»» 🐵 Only continue with this script when it is ok to overwrite these files...\n\e[0m"
 
+PROMPT="1"
+if [[ $1 == "noprompt" ]]; then
+  PROMPT="0"
+fi
+if [[ -f /.dockerenv ]]; then
+  PROMPT="0"
+fi
 
-if [ -t 0 ] ; then
+if [[ "$PROMPT" == "1" ]]; then
   read -p "Are you sure? " -n 1 -r
   echo
   if [[ ! $REPLY =~ ^[Yy]$ ]]; then
