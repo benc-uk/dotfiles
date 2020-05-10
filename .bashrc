@@ -124,8 +124,9 @@ fi
 LS_COLORS="ow=35:ln=31:di=32"
 export LS_COLORS
 
-# Extra aliases & secrets ======================
+# Extra aliases & env vars ======================
 if [ -f $HOME/.aliases.rc ]; then source $HOME/.aliases.rc; fi
+if [ -f $HOME/.bashenv ]; then source $HOME/.bashenv; fi
 
 # Auto complete ====================
 if command -v kubectl > /dev/null; then source <(kubectl completion bash); fi
