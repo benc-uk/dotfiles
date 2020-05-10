@@ -1,11 +1,11 @@
 #!/bin/bash
-echo -e "\n\e[38;5;135m╭─────────────────────────────────────╮"
-echo -e "│\e[38;5;220m    Dotfiles & Oh-My-Zsh Installer \e[38;5;135m  │"
-echo -e "╰─────────────────────────────────────╯"
+echo -e "\n\e[38;5;135m╭───────────────────────────────────────────╮"
+echo -e "│\e[38;5;220m    Dotfiles, Oh My Zsh & P10k Installer \e[38;5;135m  │"
+echo -e "╰───────────────────────────────────────────╯"
 echo -e "\e[38;5;33mBen Coleman     \e[38;5;40mv0.0.2     🚀  🎁  💥\n"
 echo -e "\e[38;5;214m»»» 🙉 This script will remove & replace many of your personal dotfiles"
 echo -e "\e[38;5;214m»»» 🙊 If you have anything in these files/folders, please back them up:"
-echo -e "\e[38;5;214m»»» 🙈   \e[38;5;227m.zshrc .zshenv .p10k.zsh .gitconfig .profile .bashrc ~/bin/ ~/tools/ ~/.oh-my-zsh"
+echo -e "\e[38;5;214m»»» 🙈   \e[38;5;227m.zshrc .zshenv .bashenv .p10k.zsh .gitconfig .profile .bashrc ~/bin/ ~/tools/ ~/.oh-my-zsh"
 echo -e "\e[38;5;214m»»» 🐵 Only continue with this script when it is ok to overwrite these files...\n\e[0m"
 
 read -p "Are you sure? " -n 1 -r
@@ -29,12 +29,15 @@ fi
 # Create symlinks for all dotfiles and bin directory
 #
 echo -e "\n\e[38;5;45m»»» Creating dotfile symlinks \e[0m"
-for f in .zshrc .zshenv .p10k.zsh .gitconfig .profile .bashrc .aliases.rc .banner.rc bin
+for f in .zshrc .p10k.zsh .gitconfig .profile .bashrc .aliases.rc .banner.rc bin
 do
   echo $f
   rm $HOME/$f 2> /dev/null
   ln -s $HOME/.dotfiles/$f $HOME/$f
 done
+rm $HOME/.bashenv $HOME/.zshenv
+ln -s $HOME/.dotfiles/.env.rc $HOME/.bashenv
+ln -s $HOME/.dotfiles/.env.rc $HOME/.zshenv
 
 #
 # Clone my setup scripts

@@ -18,6 +18,18 @@ COMPLETION_WAITING_DOTS="true"
 # under VCS as dirty. This makes repository status check for large repositories  much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+# Ohmyzsh plugins
+plugins=(
+  git
+  dotenv
+  npm
+  docker
+  encode64
+  helm
+  z
+  web-search
+)
+
 # Now enable oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
