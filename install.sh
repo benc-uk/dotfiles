@@ -8,7 +8,7 @@ echo -e "\e[38;5;214m»»» 🙊 If you have anything in these files/folders, pl
 echo -e "\e[38;5;214m»»» 🙈   \e[38;5;227m.zshrc .zshenv .bashenv .p10k.zsh .gitconfig .profile .bashrc ~/bin/ ~/tools/ ~/.oh-my-zsh"
 echo -e "\e[38;5;214m»»» 🐵 Only continue with this script when it is ok to overwrite these files...\n\e[0m"
 
-# if [[ $1 != "noprompt" ]]; then
+
 if [ -t 0 ] ; then
   read -p "Are you sure? " -n 1 -r
   echo
@@ -25,6 +25,7 @@ if [ -f "/bin/zsh" ]; then
   rm -rf $HOME/.oh-my-zsh
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
+  touch $HOME/.z
 fi
 
 #
