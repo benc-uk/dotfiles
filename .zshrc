@@ -11,9 +11,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # Set name of the theme to load 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-#POWERLEVEL9K_HOME_ICON=🏠
-#POWERLEVEL9K_VCS_GIT_GITHUB_ICON=🚦
-
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 

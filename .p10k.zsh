@@ -49,61 +49,63 @@
     status                  # exit code of the last command
     command_execution_time  # duration of the last command
     background_jobs         # presence of background jobs
-    direnv                  # direnv status (https://direnv.net/)
-    # asdf                    # asdf version manager (https://github.com/asdf-vm/asdf)
+    # direnv                # direnv status (https://direnv.net/)
+    # asdf                  # asdf version manager (https://github.com/asdf-vm/asdf)
     virtualenv              # python virtual environment (https://docs.python.org/3/library/venv.html)
-    anaconda                # conda environment (https://conda.io/)
-    pyenv                   # python environment (https://github.com/pyenv/pyenv)
-    goenv                   # go environment (https://github.com/syndbg/goenv)
-    nodenv                  # node.js version from nodenv (https://github.com/nodenv/nodenv)
-    nvm                     # node.js version from nvm (https://github.com/nvm-sh/nvm)
-    nodeenv                 # node.js environment (https://github.com/ekalinin/nodeenv)
-    # node_version          # node.js version
-    # go_version            # go version (https://golang.org)
-    # rust_version          # rustc version (https://www.rust-lang.org)
-    # dotnet_version        # .NET version (https://dotnet.microsoft.com)
+    # anaconda              # conda environment (https://conda.io/)
+    # pyenv                 # python environment (https://github.com/pyenv/pyenv)
+    # goenv                 # go environment (https://github.com/syndbg/goenv)
+    # nodenv                # node.js version from nodenv (https://github.com/nodenv/nodenv)
+    # nvm                   # node.js version from nvm (https://github.com/nvm-sh/nvm)
+    # nodeenv               # node.js environment (https://github.com/ekalinin/nodeenv)
+    node_version            # node.js version
+    go_version              # go version (https://golang.org)
+    rust_version            # rustc version (https://www.rust-lang.org)
+    dotnet_version          # .NET version (https://dotnet.microsoft.com)
     # php_version           # php version (https://www.php.net/)
     # laravel_version       # laravel php framework version (https://laravel.com/)
-    # java_version          # java version (https://www.java.com/)
-    # package               # name@version from package.json (https://docs.npmjs.com/files/package.json)
-    # rbenv                   # ruby version from rbenv (https://github.com/rbenv/rbenv)
-    # rvm                     # ruby version from rvm (https://rvm.io)
-    # fvm                     # flutter version management (https://github.com/leoafarias/fvm)
-    # luaenv                  # lua version from luaenv (https://github.com/cehoffman/luaenv)
-    jenv                    # java version from jenv (https://github.com/jenv/jenv)
-    # plenv                   # perl version from plenv (https://github.com/tokuhirom/plenv)
-    # phpenv                  # php version from phpenv (https://github.com/phpenv/phpenv)
-    # haskell_stack           # haskell version from stack (https://haskellstack.org/)
+    java_version            # java version (https://www.java.com/)
+    package                 # name@version from package.json (https://docs.npmjs.com/files/package.json)
+    # rbenv                 # ruby version from rbenv (https://github.com/rbenv/rbenv)
+    # rvm                   # ruby version from rvm (https://rvm.io)
+    # fvm                   # flutter version management (https://github.com/leoafarias/fvm)
+    # luaenv                # lua version from luaenv (https://github.com/cehoffman/luaenv)
+    # jenv                  # java version from jenv (https://github.com/jenv/jenv)
+    # plenv                 # perl version from plenv (https://github.com/tokuhirom/plenv)
+    # phpenv                # php version from phpenv (https://github.com/phpenv/phpenv)
+    # haskell_stack         # haskell version from stack (https://haskellstack.org/)
     kubecontext             # current kubernetes context (https://kubernetes.io/)
     terraform               # terraform workspace (https://www.terraform.io)
-    # aws                     # aws profile (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
-    # aws_eb_env              # aws elastic beanstalk environment (https://aws.amazon.com/elasticbeanstalk/)
+    # aws                   # aws profile (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
+    # aws_eb_env            # aws elastic beanstalk environment (https://aws.amazon.com/elasticbeanstalk/)
     azure                   # azure account name (https://docs.microsoft.com/en-us/cli/azure)
-    # gcloud                  # google cloud cli account and project (https://cloud.google.com/)
-    # google_app_cred         # google application credentials (https://cloud.google.com/docs/authentication/production)
-    # context                 # user@hostname
-    # nordvpn                 # nordvpn connection status, linux only (https://nordvpn.com/)
-    # ranger                  # ranger shell (https://github.com/ranger/ranger)
-    # nnn                     # nnn shell (https://github.com/jarun/nnn)
-    # vim_shell               # vim shell indicator (:sh)
-    # midnight_commander      # midnight commander shell (https://midnight-commander.org/)
-    # nix_shell               # nix shell (https://nixos.org/nixos/nix-pills/developing-with-nix-shell.html)
-    # vi_mode                 # vi mode (you don't need this if you've enabled prompt_char)
+    # gcloud                # google cloud cli account and project (https://cloud.google.com/)
+    # google_app_cred       # google application credentials (https://cloud.google.com/docs/authentication/production)
+    # context               # user@hostname
+    # nordvpn               # nordvpn connection status, linux only (https://nordvpn.com/)
+    # ranger                # ranger shell (https://github.com/ranger/ranger)
+    # nnn                   # nnn shell (https://github.com/jarun/nnn)
+    # vim_shell             # vim shell indicator (:sh)
+    # midnight_commander    # midnight commander shell (https://midnight-commander.org/)
+    # nix_shell             # nix shell (https://nixos.org/nixos/nix-pills/developing-with-nix-shell.html)
+    # vi_mode               # vi mode (you don't need this if you've enabled prompt_char)
     # vpn_ip                # virtual private network indicator
-    load                  # CPU load
+    # load                  # CPU load
     # disk_usage            # disk usage
     # ram                   # free RAM
     # swap                  # used swap
-    # todo                    # todo items (https://github.com/todotxt/todo.txt-cli)
-    # timewarrior             # timewarrior tracking status (https://timewarrior.net/)
-    # taskwarrior             # taskwarrior task count (https://taskwarrior.org/)
-    time                  # current time
+    # todo                  # todo items (https://github.com/todotxt/todo.txt-cli)
+    # timewarrior           # timewarrior tracking status (https://timewarrior.net/)
+    # taskwarrior           # taskwarrior task count (https://taskwarrior.org/)
+    time                    # current time
     # =========================[ Line #2 ]=========================
     newline
     # ip                    # ip address and bandwidth usage for a specified network interface
     # public_ip             # public IP address
     # proxy                 # system-wide http/https/ftp proxy
-      battery               # internal battery
+    load                    # CPU load
+    ram                     # free RAM
+    battery                 # internal battery
     # wifi                  # wifi speed
     # example               # example user-defined segment (see prompt_example function below)
   )
@@ -174,7 +176,7 @@
   # The right end of right prompt.
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_LAST_SEGMENT_END_SYMBOL='\uE0B0'
   # Left prompt terminator for lines without any segments.
-  typeset -g POWERLEVEL9K_EMPTY_LINE_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL=
+  typeset -g POWERLEVEL9K_EMPTY_LINE_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL='❯'
 
   #################################[ os_icon: os identifier ]##################################
   # OS identifier color.
@@ -476,36 +478,36 @@
   # Status on success. No content, just an icon. No need to show it if prompt_char is enabled as
   # it will signify success by turning green.
   typeset -g POWERLEVEL9K_STATUS_OK=true
-  typeset -g POWERLEVEL9K_STATUS_OK_VISUAL_IDENTIFIER_EXPANSION='✔'
+  typeset -g POWERLEVEL9K_STATUS_OK_VISUAL_IDENTIFIER_EXPANSION='😀'
   # typeset -g POWERLEVEL9K_STATUS_OK_FOREGROUND=2
-  # typeset -g POWERLEVEL9K_STATUS_OK_BACKGROUND=0
+  typeset -g POWERLEVEL9K_STATUS_OK_BACKGROUND=250
 
   # Status when some part of a pipe command fails but the overall exit status is zero. It may look
   # like this: 1|0.
   typeset -g POWERLEVEL9K_STATUS_OK_PIPE=true
-  typeset -g POWERLEVEL9K_STATUS_OK_PIPE_VISUAL_IDENTIFIER_EXPANSION='✔'
+  typeset -g POWERLEVEL9K_STATUS_OK_PIPE_VISUAL_IDENTIFIER_EXPANSION='😀'
   # typeset -g POWERLEVEL9K_STATUS_OK_PIPE_FOREGROUND=2
-  # typeset -g POWERLEVEL9K_STATUS_OK_PIPE_BACKGROUND=0
+  typeset -g POWERLEVEL9K_STATUS_OK_PIPE_BACKGROUND=250
 
   # Status when it's just an error code (e.g., '1'). No need to show it if prompt_char is enabled as
   # it will signify error by turning red.
   typeset -g POWERLEVEL9K_STATUS_ERROR=true
-  typeset -g POWERLEVEL9K_STATUS_ERROR_VISUAL_IDENTIFIER_EXPANSION='✘'
-  # typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND=3
-  # typeset -g POWERLEVEL9K_STATUS_ERROR_BACKGROUND=1
+  typeset -g POWERLEVEL9K_STATUS_ERROR_VISUAL_IDENTIFIER_EXPANSION='😦'
+  typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND=214
+  typeset -g POWERLEVEL9K_STATUS_ERROR_BACKGROUND=124
 
   # Status when the last command was terminated by a signal.
   typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL=true
   # Use terse signal names: "INT" instead of "SIGINT(2)".
   typeset -g POWERLEVEL9K_STATUS_VERBOSE_SIGNAME=false
-  typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL_VISUAL_IDENTIFIER_EXPANSION='✘'
-  # typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL_FOREGROUND=3
-  # typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL_BACKGROUND=1
+  typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL_VISUAL_IDENTIFIER_EXPANSION='😲'
+  typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL_FOREGROUND=229
+  typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL_BACKGROUND=202
 
   # Status when some part of a pipe command fails and the overall exit status is also non-zero.
   # It may look like this: 1|0.
   typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE=true
-  typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE_VISUAL_IDENTIFIER_EXPANSION='✘'
+  typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE_VISUAL_IDENTIFIER_EXPANSION='😫'
   # typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE_FOREGROUND=3
   # typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE_BACKGROUND=1
 
@@ -774,9 +776,9 @@
   ######################################[ ram: free RAM ]#######################################
   # RAM color.
   # typeset -g POWERLEVEL9K_RAM_FOREGROUND=0
-  # typeset -g POWERLEVEL9K_RAM_BACKGROUND=3
+  typeset -g POWERLEVEL9K_RAM_BACKGROUND=190
   # Custom icon.
-  # typeset -g POWERLEVEL9K_RAM_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  typeset -g POWERLEVEL9K_RAM_VISUAL_IDENTIFIER_EXPANSION='🌈'
 
   #####################################[ swap: used swap ]######################################
   # Swap color.
@@ -787,18 +789,18 @@
 
   ######################################[ load: CPU load ]######################################
   # Show average CPU load over this many last minutes. Valid values are 1, 5 and 15.
-  typeset -g POWERLEVEL9K_LOAD_WHICH=5
+  typeset -g POWERLEVEL9K_LOAD_WHICH=1
   # Load color when load is under 50%.
   # typeset -g POWERLEVEL9K_LOAD_NORMAL_FOREGROUND=0
-  # typeset -g POWERLEVEL9K_LOAD_NORMAL_BACKGROUND=2
+  typeset -g POWERLEVEL9K_LOAD_NORMAL_BACKGROUND=70
   # Load color when load is between 50% and 70%.
   # typeset -g POWERLEVEL9K_LOAD_WARNING_FOREGROUND=0
-  # typeset -g POWERLEVEL9K_LOAD_WARNING_BACKGROUND=3
+  typeset -g POWERLEVEL9K_LOAD_WARNING_BACKGROUND=3
   # Load color when load is over 70%.
   # typeset -g POWERLEVEL9K_LOAD_CRITICAL_FOREGROUND=0
-  # typeset -g POWERLEVEL9K_LOAD_CRITICAL_BACKGROUND=1
+  typeset -g POWERLEVEL9K_LOAD_CRITICAL_BACKGROUND=1
   # Custom icon.
-  typeset -g POWERLEVEL9K_LOAD_VISUAL_IDENTIFIER_EXPANSION='📈'
+  typeset -g POWERLEVEL9K_LOAD_VISUAL_IDENTIFIER_EXPANSION='🔥'
 
   ################[ todo: todo items (https://github.com/todotxt/todo.txt-cli) ]################
   # Todo color.
@@ -972,20 +974,20 @@
   ##############################[ node_version: node.js version ]###############################
   # Node version color.
   # typeset -g POWERLEVEL9K_NODE_VERSION_FOREGROUND=7
-  # typeset -g POWERLEVEL9K_NODE_VERSION_BACKGROUND=2
+  typeset -g POWERLEVEL9K_NODE_VERSION_BACKGROUND=35
   # Show node version only when in a directory tree containing package.json.
   typeset -g POWERLEVEL9K_NODE_VERSION_PROJECT_ONLY=true
   # Custom icon.
-  # typeset -g POWERLEVEL9K_NODE_VERSION_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  typeset -g POWERLEVEL9K_NODE_VERSION_VISUAL_IDENTIFIER_EXPANSION='💚'
 
   #######################[ go_version: go version (https://golang.org) ]########################
   # Go version color.
-  # typeset -g POWERLEVEL9K_GO_VERSION_FOREGROUND=255
-  # typeset -g POWERLEVEL9K_GO_VERSION_BACKGROUND=2
+  typeset -g POWERLEVEL9K_GO_VERSION_FOREGROUND=237
+  typeset -g POWERLEVEL9K_GO_VERSION_BACKGROUND=45
   # Show go version only when in a go project subdirectory.
   typeset -g POWERLEVEL9K_GO_VERSION_PROJECT_ONLY=true
   # Custom icon.
-  # typeset -g POWERLEVEL9K_GO_VERSION_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  typeset -g POWERLEVEL9K_GO_VERSION_VISUAL_IDENTIFIER_EXPANSION='🐻'
 
   #################[ rust_version: rustc version (https://www.rust-lang.org) ]##################
   # Rust version color.
@@ -999,11 +1001,11 @@
   ###############[ dotnet_version: .NET version (https://dotnet.microsoft.com) ]################
   # .NET version color.
   # typeset -g POWERLEVEL9K_DOTNET_VERSION_FOREGROUND=7
-  # typeset -g POWERLEVEL9K_DOTNET_VERSION_BACKGROUND=5
+  typeset -g POWERLEVEL9K_DOTNET_VERSION_BACKGROUND=54
   # Show .NET version only when in a .NET project subdirectory.
   typeset -g POWERLEVEL9K_DOTNET_VERSION_PROJECT_ONLY=true
   # Custom icon.
-  # typeset -g POWERLEVEL9K_DOTNET_VERSION_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  typeset -g POWERLEVEL9K_DOTNET_VERSION_VISUAL_IDENTIFIER_EXPANSION='💀'
 
   #####################[ php_version: php version (https://www.php.net/) ]######################
   # PHP version color.
@@ -1049,7 +1051,7 @@
   ###[ package: name@version from package.json (https://docs.npmjs.com/files/package.json) ]####
   # Package color.
   # typeset -g POWERLEVEL9K_PACKAGE_FOREGROUND=0
-  # typeset -g POWERLEVEL9K_PACKAGE_BACKGROUND=6
+  typeset -g POWERLEVEL9K_PACKAGE_BACKGROUND=157
 
   # Package format. The following parameters are available within the expansion.
   #
@@ -1059,7 +1061,7 @@
   # typeset -g POWERLEVEL9K_PACKAGE_CONTENT_EXPANSION='${P9K_PACKAGE_NAME//\%/%%}@${P9K_PACKAGE_VERSION//\%/%%}'
 
   # Custom icon.
-  # typeset -g POWERLEVEL9K_PACKAGE_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  typeset -g POWERLEVEL9K_PACKAGE_VISUAL_IDENTIFIER_EXPANSION='📦'
 
   #######################[ rvm: ruby version from rvm (https://rvm.io) ]########################
   # Rvm color.
@@ -1479,14 +1481,14 @@
   typeset -g POWERLEVEL9K_BATTERY_LOW_THRESHOLD=20
   typeset -g POWERLEVEL9K_BATTERY_LOW_FOREGROUND=1
   # Show battery in green when it's charging or fully charged.
-  typeset -g POWERLEVEL9K_BATTERY_{CHARGING,CHARGED}_FOREGROUND=2
+  typeset -g POWERLEVEL9K_BATTERY_{CHARGING,CHARGED}_FOREGROUND=40
   # Show battery in yellow when it's discharging.
   typeset -g POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND=3
   # Battery pictograms going from low to high level of charge.
   typeset -g POWERLEVEL9K_BATTERY_STAGES=('%K{232}▁' '%K{232}▂' '%K{232}▃' '%K{232}▄' '%K{232}▅' '%K{232}▆' '%K{232}▇' '%K{232}█')
   # Don't show the remaining time to charge/discharge.
   typeset -g POWERLEVEL9K_BATTERY_VERBOSE=false
-  # typeset -g POWERLEVEL9K_BATTERY_BACKGROUND=0
+  typeset -g POWERLEVEL9K_BATTERY_BACKGROUND=233
 
   #####################################[ wifi: wifi speed ]#####################################
   # WiFi color.
@@ -1521,8 +1523,8 @@
 
   ####################################[ time: current time ]####################################
   # Current time color.
-  # typeset -g POWERLEVEL9K_TIME_FOREGROUND=0
-  # typeset -g POWERLEVEL9K_TIME_BACKGROUND=7
+  typeset -g POWERLEVEL9K_TIME_FOREGROUND=55
+  typeset -g POWERLEVEL9K_TIME_BACKGROUND=253
   # Format for the current time: 09:51:02. See `man 3 strftime`.
   typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
   # If set to true, time will update when you hit enter. This way prompts for the past
