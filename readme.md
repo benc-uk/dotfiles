@@ -9,19 +9,19 @@ This shell configuration is unlikely to be to everyone's tastes 😁
 ![image](https://user-images.githubusercontent.com/14982936/81501320-ae659580-92cf-11ea-8236-caa4fcc10b8d.png)
 
 
-## Index
+## File Index
 - `bin/` – My personal bash scripts, helpers and other things. This is symlinked to `~/bin/`
 - `.aliases.rc` – All aliases go here (used with Bash and Zsh)
 - `.banner.rc` – Logon banner message (used with Bash and Zsh)
 - `.bashprompt.rc` – Bash prompt, like a poor mans p10k for Bash
 - `.bashrc` – Bash setup/startup script
-- `.env.rc` – Environmental vars and PATH settings, symlinked to ~/.bashenv & ~/.zshrc
+- `.env.rc` – Environmental vars and PATH settings, symlinked to `~/.bashenv` & `~/.zshenv`
 - `.gitconfig` – My personal git config
 - `.p10k.zsh` – Customized Powerlevel10k prompt settings
 - `.profile` – Untouched but synced just in case
 - `.zshrc` – Zsh setup/startup script, enables Oh My Zsh and Powerlevel10k
 - `backup.sh` – Git add, commit and push to GitHub
-- `install-zsh.sh` – Installs Zsh, and changes shell needs sudo
+- `install-zsh.sh` – Installs Zsh, and changes shell, needs sudo
 - `install.sh` – Main install script
 
 ## Usage
@@ -35,3 +35,5 @@ Run install
 cd ~
 ./.dotfiles/install.sh
 ```
+
+Place any secrets, and local overrides into `~/.local.rc` DO NOT add this file to the dotfiles repo
