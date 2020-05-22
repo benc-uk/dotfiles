@@ -1325,7 +1325,7 @@
   typeset -g POWERLEVEL9K_AZURE_SHOW_ON_COMMAND='az|terraform|pulumi'
   # Azure account name color.
   # typeset -g POWERLEVEL9K_AZURE_FOREGROUND=7
-  # typeset -g POWERLEVEL9K_AZURE_BACKGROUND=4
+  typeset -g POWERLEVEL9K_AZURE_BACKGROUND=33
   # Custom icon.
   typeset -g POWERLEVEL9K_AZURE_VISUAL_IDENTIFIER_EXPANSION='☁'
 
