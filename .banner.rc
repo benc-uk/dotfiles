@@ -5,7 +5,7 @@ if [ ! -z $WSL_DISTRO_NAME ]; then where="Windows Subsystem for Linux v1 💙"; 
 if [ ! -z $WSL_INTEROP ]; then where="Windows Subsystem for Linux v2 💚"; fi
 if [ ! -z $ACC_TERM_ID ]; then where="Azure Cloud Shell ($ACC_LOCATION)\e[37m☁"; fi
 if [ -f /.dockerenv ]; then where="Inside a Docker container 📦"; fi
-if [ ! -z $REMOTE_CONTAINERS_IPC ]; then where="Inside a Devcontainer../ Let's code! 💻"; fi
+if [ ! -z $REMOTE_CONTAINERS_IPC ]; then where="Inside a Devcontainer. Let's code! 💻"; fi
 if [[ "$(lsb_release -i)" =~ "Raspbian" ]]; then where="Raspberry Pi 🍇"; fi
 
 echo -e "\e[38;5;192m╭───── \e[38;5;202m🚀 Oh My Zsh \e[37m& \e[38;5;226mPowerlevel10K"
