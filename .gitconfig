@@ -5,3 +5,5 @@
 	name = Ben Coleman
 [push]
 	default = simple
+[core]
+	editor = code --wait
