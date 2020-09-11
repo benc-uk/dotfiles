@@ -7,3 +7,5 @@
 	default = simple
 [core]
 	editor = code --wait
+[init]
+	defaultBranch = main
