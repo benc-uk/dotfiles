@@ -9,3 +9,5 @@
 	editor = code --wait
 [init]
 	defaultBranch = main
+[http]
+	cookiefile = /home/ben/.gitcookies
