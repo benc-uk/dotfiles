@@ -15,6 +15,7 @@ alias tf=terraform
 alias az-airs='az account set -s $AZ_SUB_AIRS && az account show -o table'
 alias az-vs='az account set -s $AZ_SUB_VS && az account show -o table'
 alias az-nuke='az group delete --no-wait --yes -g'
+alias az-bs='az account set -s 6a42c4e8-afcd-4155-b25a-d1f9f6371ca6'
 
 # Node
 alias npm-clean='rm -rf node_modules && rm package-lock.json && npm install'
