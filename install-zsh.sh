@@ -1,4 +1,4 @@
-#!/bin.sh
+#!/bin/sh
 
 #
 # Simple script to install zsh and try to change default shell to it
