@@ -5,15 +5,15 @@
 PROMPT_COMMAND=__prompt_command
 
 # Kubernetes prompt script I found
-source $HOME/.dotfiles/lib/kube-ps1.sh
+source $HOME/dotfiles/lib/kube-ps1.sh
 
 function __git_color {
   local git_status="$(git status --porcelain  2> /dev/null | wc -l)"
 
   if (( $git_status > 0)); then
-    echo -e "\e[38;5;220m" 
+    echo -e "\[\e[38;5;220m\]" 
   else
-    echo -e "\e[38;5;76m"
+    echo -e "\[\e[38;5;76m\]"
   fi
 }
 
@@ -37,11 +37,11 @@ function __azure_sub {
   regex='=\s(.*?)'
   if [[ -f $(which jq) && -f "$HOME/.azure/clouds.config" && $(cat $HOME/.azure/clouds.config) =~ $regex ]]; then
     azsub=$(cat $HOME/.azure/azureProfile.json | jq -r ".subscriptions[] | select(.id==\"${BASH_REMATCH[1]}\").name")
-    echo "$SEP\e[38;5;15m☁ \e[38;5;87m$azsub"
+    echo "$SEP\[\e[38;5;15m\]⛅ \[\e[38;5;87m\]$azsub"
   fi
 }
 
-SEP=" \e[30m┃ "
+SEP=" \[\e[30m\]┃ "
 
 KUBE_PS1_SEPARATOR=" "
 KUBE_PS1_PREFIX="$SEP"
@@ -52,28 +52,28 @@ KUBE_PS1_NS_COLOR="155"
 
 # Build & return prompt 
 __prompt_command() {
-    local e="$?"
-    # Start with user@host 
-    PS1="\e[48;5;237m 🏠 \e[38;5;220m\u\e[38;5;251m@\e[38;5;208m\h"
-    # Then current directory
-    PS1+="$SEP📂 \e[38;5;252m\W"
+  local e="$?"
+  # Start with user@host 
+  PS1="\[\e[48;5;237m\] 🏠 \[\e[38;5;220m\]\u\[\e[38;5;251m\]@\[\e[38;5;208m\]\h"
+  # Then current directory
+  PS1+="$SEP📂 \[\e[38;5;252m\]\W"
 
-    # If wide enough show Azure subscription 
-    if (( $(tput cols) > 80 )); then
-      PS1+="$(__azure_sub) "
-      if [ -f "$HOME/.kube/config" ]; then
-        PS1+="$(kube_ps1)"
-      fi
+  # If wide enough show Azure subscription 
+  if (( $(tput cols) > 80 )); then
+    PS1+="$(__azure_sub) "
+    if [ -f "$HOME/.kube/config" ]; then
+      PS1+="$(kube_ps1)"
     fi
-    
-    # Add git details
-    PS1+="$(__git_branch) \e[0m\e[38;5;22m"
-    
-    # Status code
-    if [ $e != 0 ]; then
-        PS1+="\[\e[0m\]\e[38;5;197m ${e} 💩 "
-    else
-        PS1+="\e[0m\e[38;5;76m"
-    fi
-    PS1+="\n❯ \e[0m"
+  fi
+  
+  # Add git details
+  PS1+="$(__git_branch) \[\e[0m\]\[\e[38;5;22m\]"
+  
+  # Status code
+  if [ $e != 0 ]; then
+     PS1+="\[\e[0m\]\[\e[38;5;197m\] ${e} 💩 "
+  else
+     PS1+="\[\e[0m\]\[\e[38;5;76m\]"
+  fi
+  PS1+="\n⮞ \[\e[0m\]"
 }

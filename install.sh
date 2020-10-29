@@ -43,11 +43,11 @@ for f in .zshrc .p10k.zsh .gitconfig .profile .bashrc .aliases.rc .banner.rc bin
 do
   echo $f
   rm $HOME/$f 2> /dev/null
-  ln -s $HOME/.dotfiles/$f $HOME/$f
+  ln -s $HOME/dotfiles/$f $HOME/$f
 done
 rm $HOME/.bashenv $HOME/.zshenv
-ln -s $HOME/.dotfiles/.env.rc $HOME/.bashenv
-ln -s $HOME/.dotfiles/.env.rc $HOME/.zshenv
+ln -s $HOME/dotfiles/.env.rc $HOME/.bashenv
+ln -s $HOME/dotfiles/.env.rc $HOME/.zshenv
 
 #
 # Clone my setup scripts

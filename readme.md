@@ -13,7 +13,7 @@ This shell configuration is unlikely to be to everyone's tastes 😁
 - `bin/` – My personal bash scripts, helpers and other things. This is symlinked to `~/bin/`
 - `.aliases.rc` – All aliases go here (used with Bash and Zsh)
 - `.banner.rc` – Logon banner message (used with Bash and Zsh)
-- `.bashprompt.rc` – Bash prompt, like a poor mans p10k for Bash
+- `.bashprompt.rc` – Bash prompt, like a poor mans p10k for Bash, disable with BASIC_PROMPT=1
 - `.bashrc` – Bash setup/startup script
 - `.env.rc` – Environmental vars and PATH settings, symlinked to `~/.bashenv` & `~/.zshenv`
 - `.gitconfig` – My personal git config
@@ -25,15 +25,16 @@ This shell configuration is unlikely to be to everyone's tastes 😁
 - `install.sh` – Main install script
 
 ## Usage
-Clone into `~/.dotfiles`
+Clone into `~/dotfiles`
 ```bash
-git clone https://github.com/benc-uk/dotfiles.git ~/.dotfiles
+cd ~
+git clone https://github.com/benc-uk/dotfiles.git 
 ```
 
 Run install
 ```bash
 cd ~
-./.dotfiles/install.sh
+./dotfiles/install.sh
 ```
 
 Place any secrets, and local overrides into `~/.local.rc` DO NOT add this file to the dotfiles repo
