@@ -45,7 +45,7 @@ echo -e "\n\e[38;5;45m»»» Creating dotfile symlinks \e[0m"
 for f in .zshrc .p10k.zsh .gitconfig .profile .bashrc .aliases.rc .banner.rc bin
 do
   echo $f
-  rm $HOME/$f 2> /dev/null
+  rm -rf $HOME/$f
   ln -s $HOME/dotfiles/$f $HOME/$f
 done
 rm $HOME/.bashenv $HOME/.zshenv
