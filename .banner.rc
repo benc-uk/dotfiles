@@ -1,5 +1,9 @@
-# Get IP addresses
-ip=$(ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)
+# Get eth0 IP address or fallback to local
+if command -v ip &> /dev/null; then
+  ip=$(ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)
+else
+  ip=$(hostname -i)
+fi
 
 # Get public IP address and cache results
 declare publicip_cache_age=99900
