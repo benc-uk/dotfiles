@@ -5,9 +5,20 @@
 	name = Ben Coleman
 [push]
 	default = simple
+[pull]
+	rebase = false		
 [core]
 	editor = code --wait
 [init]
 	defaultBranch = main
 [http]
 	cookiefile = /home/ben/.gitcookies
+[alias]
+	c = "!git add -A && git commit -m "
+	new = "!git checkout -b"
+	k = "!git checkout "
+	p = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
+	pf = "!git push --force origin $(git rev-parse --abbrev-ref HEAD)"
+	amend = "!git add -A && git commit --amend --no-edit"
+	undo = "!git reset --soft HEAD^"
+	unstage = "!git reset HEAD"
