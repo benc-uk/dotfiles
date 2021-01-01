@@ -14,10 +14,12 @@
 [http]
 	cookiefile = /home/ben/.gitcookies
 [alias]
-	c = "!git add -A && git commit -m "
+	a = "!git add -A"
+	c = "!git commit"
+	ac = "!git add -A && git commit"
 	new = "!git checkout -b"
-	k = "!git checkout "
-	b = "!git branch "
+	k = "!git checkout"
+	b = "!git branch"
 	p = "!git push"
 	#origin $(git rev-parse --abbrev-ref HEAD)"
 	pf = "!git push --force"
