@@ -22,3 +22,6 @@ alias az-bs='az account set -s 6a42c4e8-afcd-4155-b25a-d1f9f6371ca6'
 
 # Node
 alias npm-clean='rm -rf node_modules && rm package-lock.json && npm install'
+
+# Junk
+alias adr='/home/ben/proj/poste/adr-tools/src/adr'
