@@ -13,6 +13,7 @@ alias tf='terraform'
 alias g='git'
 alias timesync='sudo hwclock -s'
 alias py='python3'
+alias gh-open='gh repo view --web'
 
 # Azure CLI
 alias az-airs='az account set -s $AZ_SUB_AIRS && az account show -o table'
