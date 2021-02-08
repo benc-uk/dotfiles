@@ -58,3 +58,8 @@ ln -s $HOME/dotfiles/.env.rc $HOME/.zshenv
 echo -e "\n\e[38;5;45m»»» Cloning tools repo to $HOME/tools \e[0m"
 rm -rf $HOME/tools
 git clone -q https://github.com/benc-uk/tools-install.git $HOME/tools
+
+#
+# zsh plugins
+#
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions

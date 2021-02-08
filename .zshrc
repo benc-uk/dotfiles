@@ -28,6 +28,7 @@ plugins=(
   helm
   z
   web-search
+  zsh-autosuggestions
 )
 
 # Now enable oh-my-zsh
