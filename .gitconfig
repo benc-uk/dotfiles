@@ -22,6 +22,7 @@
 	b = "!git branch"
 	del = "!git branch -d"
 	list = "!git --no-pager branch --list --all"
+	lg = "!git --no-pager log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n "
 	p = "!git push"
 	u = "!git pull"
 	ur = "!git pull --rebase"
