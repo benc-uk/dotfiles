@@ -15,26 +15,35 @@
 	cookiefile = /home/ben/.gitcookies
 [alias]
 	a = "!git add -A"
+	amend = "!git add -A && git commit --amend --no-edit"
 	c = "!git commit"
 	ac = "!git add -A && git commit -m"
+
 	new = "!git checkout -b"
 	k = "!git checkout"
+	def = "!git checkout $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')"
 	b = "!git branch"
-	del = "!git branch -d"
+	del = "!git branch -D"
+
 	list = "!git --no-pager branch --list --all"
+	ls = "!git list"
 	lg = "!git --no-pager log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n "
+	s = "!git status"
+	sr = "!git show-ref --head --abbrev"
+
 	p = "!git push"
+	pf = "!git push --force" #origin $(git rev-parse --abbrev-ref HEAD)"
+	publish = "!git push --set-upstream origin $(git branch-name)"
+	pub = "!git publish"
+
 	u = "!git pull"
 	ur = "!git pull --rebase"
-	s = "!git status"
+
 	f = "!git fetch --all --verbose"
-	r = "!git remote -v"
-	sr = "!git show-ref --head --abbrev"
 	fprune = "!git fetch --all --prune --verbose" #origin $(git rev-parse --abbrev-ref HEAD)"
-	pf = "!git push --force" #origin $(git rev-parse --abbrev-ref HEAD)"
-	amend = "!git add -A && git commit --amend --no-edit"
+	r = "!git remote -v"
+
 	undo = "!git reset --soft HEAD^"
 	unstage = "!git reset HEAD"
-	def = "!git checkout $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')"
-	publish = "!git push --set-upstream origin $(git branch-name)"
+
 	branch-name = "!git rev-parse --abbrev-ref HEAD"
