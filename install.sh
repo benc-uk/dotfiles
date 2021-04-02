@@ -37,6 +37,7 @@ touch "$HOME/iwashere02.txt"
 # Enable oh-my-zsh and p10k
 #
 if [ -f "/bin/zsh" ]; then
+  touch "$HOME/iwashere025.txt"
   echo -e "\e[38;5;45m»»» Zsh detected, setting up oh-my-zsh and powerlevel10k \e[0m"
   rm -rf $HOME/.oh-my-zsh
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
