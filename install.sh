@@ -2,15 +2,16 @@
 echo -e "\n\e[38;5;135m╭───────────────────────────────────────────╮"
 echo -e "│\e[38;5;220m    Dotfiles, Oh My Zsh & P10k Installer \e[38;5;135m  │"
 echo -e "╰───────────────────────────────────────────╯"
-echo -e "\e[38;5;33mBen Coleman     \e[38;5;40mv0.0.2     🚀  🎁  💥\n"
+echo -e "\e[38;5;33mBen Coleman     \e[38;5;40mv1.0.3     🚀  🎁  💥\n"
 echo -e "\e[38;5;214m»»» 🙉 This script will remove & replace many of your personal dotfiles"
 echo -e "\e[38;5;214m»»» 🙊 If you have anything in these files/folders, please back them up:"
 echo -e "\e[38;5;214m»»» 🙈   \e[38;5;227m.zshrc .zshenv .bashenv .p10k.zsh .gitconfig .profile .bashrc ~/bin/ ~/tools/ ~/.oh-my-zsh"
 echo -e "\e[38;5;214m»»» 🐵 Only continue with this script when it is ok to overwrite these files...\n\e[0m"
 
+# Need to use this as Codespaces clones the dotfile repo outside of $HOME
 DOTFILE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-PROMPT="0"
+PROMPT="1"
 if [[ $1 == "noprompt" ]]; then
   PROMPT="0"
 fi
@@ -64,4 +65,4 @@ git clone -q https://github.com/benc-uk/tools-install.git $HOME/tools
 #
 # zsh plugins
 #
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
