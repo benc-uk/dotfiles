@@ -8,6 +8,8 @@ echo -e "\e[38;5;214m»»» 🙊 If you have anything in these files/folders, pl
 echo -e "\e[38;5;214m»»» 🙈   \e[38;5;227m.zshrc .zshenv .bashenv .p10k.zsh .gitconfig .profile .bashrc ~/bin/ ~/tools/ ~/.oh-my-zsh"
 echo -e "\e[38;5;214m»»» 🐵 Only continue with this script when it is ok to overwrite these files...\n\e[0m"
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
 PROMPT="0"
 if [[ $1 == "noprompt" ]]; then
   PROMPT="0"
@@ -46,11 +48,11 @@ for f in .zshrc .p10k.zsh .gitconfig .profile .bashrc .aliases.rc .banner.rc bin
 do
   echo $f
   rm -rf $HOME/$f
-  ln -s $HOME/dotfiles/$f $HOME/$f
+  ln -s $DIR/dotfiles/$f $HOME/$f
 done
 rm -f $HOME/.bashenv $HOME/.zshenv
-ln -s $HOME/dotfiles/.env.rc $HOME/.bashenv
-ln -s $HOME/dotfiles/.env.rc $HOME/.zshenv
+ln -s $DIR/dotfiles/.env.rc $HOME/.bashenv
+ln -s $DIR/dotfiles/.env.rc $HOME/.zshenv
 
 #
 # Clone my setup scripts
@@ -62,4 +64,4 @@ git clone -q https://github.com/benc-uk/tools-install.git $HOME/tools
 #
 # zsh plugins
 #
-#git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
