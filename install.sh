@@ -3,7 +3,7 @@
 echo -e "\n\e[38;5;135m╭───────────────────────────────────────────╮"
 echo -e "│\e[38;5;220m    Dotfiles, Oh My Zsh & P10k Installer \e[38;5;135m  │"
 echo -e "╰───────────────────────────────────────────╯"
-echo -e "\e[38;5;33mBen Coleman     \e[38;5;40mv1.0.4     🚀  🎁  💥\n"
+echo -e "\e[38;5;33mBen Coleman     \e[38;5;40mv1.0.5     🚀  🎁  💥\n"
 echo -e "\e[38;5;214m»»» 🙉 This script will remove & replace many of your personal dotfiles"
 echo -e "\e[38;5;214m»»» 🙊 If you have anything in these files/folders, please back them up:"
 echo -e "\e[38;5;214m»»» 🙈   \e[38;5;227m.zshrc .zshenv .bashenv .p10k.zsh .gitconfig .profile .bashrc ~/bin/ ~/tools/ ~/.oh-my-zsh"
@@ -52,8 +52,11 @@ do
   rm -rf $HOME/$f
   ln -s $DOTFILE_DIR/$f $HOME/$f
 done
+
 rm -f $HOME/.bashenv $HOME/.zshenv
+echo -e "\e[38;5;45m»»» 📃  ~/.bashenv --> $DOTFILE_DIR/.env.rc "
 ln -s $DOTFILE_DIR/.env.rc $HOME/.bashenv
+echo -e "\e[38;5;45m»»» 📃  ~/.zshenv --> $DOTFILE_DIR/.env.rc "
 ln -s $DOTFILE_DIR/.env.rc $HOME/.zshenv
 
 #
