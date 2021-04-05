@@ -1,4 +1,5 @@
 # Dotfiles
+
 These are my personal Linux dotfiles, I use Zsh + Oh My Zsh and Powerlevel10k.  
 These can be used on any "fresh" Linux system, or with Devcontainers / Codespaces
 
@@ -8,8 +9,8 @@ This shell configuration is unlikely to be to everyone's tastes 😁
 
 ![image](https://user-images.githubusercontent.com/14982936/81501320-ae659580-92cf-11ea-8236-caa4fcc10b8d.png)
 
-
 ## File Index
+
 - `bin/` – My personal bash scripts, helpers and other things. This is symlinked to `~/bin/`
 - `.aliases.rc` – All aliases go here (used with Bash and Zsh)
 - `.banner.rc` – Logon banner message (used with Bash and Zsh)
@@ -21,20 +22,24 @@ This shell configuration is unlikely to be to everyone's tastes 😁
 - `.profile` – Untouched but synced just in case
 - `.zshrc` – Zsh setup/startup script, enables Oh My Zsh and Powerlevel10k
 - `backup.sh` – Git add, commit and push to GitHub
-- `install-zsh.sh` – Installs Zsh, and changes shell, needs sudo
+- `install-zsh.sh` – Installs Zsh, and changes shell, tries to use sudo
 - `install.sh` – Main install script
+- `update.sh` – Pulls version from GitHub and overwrites local changes
 
 ## Usage
+
 Clone into `~/dotfiles`
+
 ```bash
 cd ~
-git clone https://github.com/benc-uk/dotfiles.git 
+git clone https://github.com/benc-uk/dotfiles.git
 ```
 
 Run install
+
 ```bash
 cd ~
 ./dotfiles/install.sh
 ```
 
-Place any secrets, and local overrides into `~/.local.rc` DO NOT add this file to the dotfiles repo
+Place any secrets, and local overrides into `~/.local.rc` **DO NOT add this file to the dotfiles repo**
