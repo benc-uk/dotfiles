@@ -26,4 +26,6 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-source "$HOME/.cargo/env"
+# ==============================================================================================
+# If you see anything after this line it's been auto-added, and probably should be removed/moved
+# ==============================================================================================
