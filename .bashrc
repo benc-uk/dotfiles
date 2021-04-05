@@ -142,3 +142,4 @@ fi
 
 # Local overrides and post steps
 if [ -f $HOME/.local.rc ]; then source $HOME/.local.rc; fi
+source "$HOME/.cargo/env"
