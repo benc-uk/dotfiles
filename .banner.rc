@@ -30,8 +30,11 @@ shelltype="🚀 Oh My Zsh \e[37m& \e[38;5;226mPowerlevel10K"
 if [[ $0 =~ "bash" ]]; then shelltype="👍 Standard \e[38;5;226mBash \e[38;5;202mShell"; fi
 
 # lsb_release might not be installed :/
-version="Unknown!!"
-if command -v lsb_releasess > /dev/null; then
+version="Unknown!"
+if test -f /etc/os-release; then
+  . /etc/os-release
+  version=$VERSION
+elif command -v lsb_release > /dev/null; then
   version=$(lsb_release -ds)
 fi
 
