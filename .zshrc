@@ -21,7 +21,6 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Ohmyzsh plugins
 plugins=(
   git
-  dotenv
   npm
   docker
   encode64
