@@ -29,3 +29,5 @@ fi
 # ==============================================================================================
 # If you see anything after this line it's been auto-added, and probably should be removed/moved
 # ==============================================================================================
+
+export PATH="$HOME/.poetry/bin:$PATH"

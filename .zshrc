@@ -60,3 +60,5 @@ if [ -f $HOME/.local.rc ]; then source $HOME/.local.rc; fi
 # ==============================================================================================
 # If you see anything after this line it's been auto-added, and probably should be removed/moved
 # ==============================================================================================
+
+export PATH="$HOME/.poetry/bin:$PATH"

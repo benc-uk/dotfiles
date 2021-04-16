@@ -1,6 +1,7 @@
 # Kubernetes
 alias k='kubectl'
-alias kn='kubectl config set-context --current --namespace '
+#alias kn='kubectl config set-context --current --namespace '
+alias kn='kubens'
 alias kc='kubectx'
 
 # Misc
@@ -13,6 +14,7 @@ alias py3='python3'
 alias tf='terraform'
 alias timesync='sudo hwclock -s'
 alias py='python3'
+alias http-server='deno run --allow-net --allow-read https://deno.land/std/http/file_server.ts -p 8080 --host localhost'
 
 # Git & GitHub
 alias g='git'
