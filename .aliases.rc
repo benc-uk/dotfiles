@@ -3,6 +3,7 @@ alias k='kubectl'
 #alias kn='kubectl config set-context --current --namespace '
 alias kn='kubens'
 alias kc='kubectx'
+alias helm-clean='helm ls --short | xargs -L1 helm delete'
 
 # Misc
 alias wsl-ip="ip addr show eth0 | grep \"inet 1\" | awk '{print \$2}' | cut -d/ -f1"
