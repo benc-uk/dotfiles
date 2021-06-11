@@ -26,7 +26,7 @@
 	del = "!git branch -D"
 
 	list = "!git --no-pager branch --list --all"
-	ls = "!git list"
+	ls = "!git list -vv"
 	lg = "!git --no-pager log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n "
 	s = "!git status"
 	sr = "!git show-ref --head --abbrev"
