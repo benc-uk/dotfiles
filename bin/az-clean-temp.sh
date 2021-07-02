@@ -12,7 +12,7 @@ done
 IFS=$','
 for group in $delGroups; do
   echo -e "\e[31m»»» 💥 Going to delete resource group: \e[0m$group"
-  #read -n 1 -s -r -p $'Press any key to continue, or ctrl-c to exit\n'
+  read -n 1 -s -r -p $'Press any key to continue, or ctrl-c to exit\n'
   echo -e "\e[33m»»» 👋 az group delete -g $group --no-wait --yes"
   az group delete -g $group --no-wait --yes
 done
