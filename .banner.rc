@@ -23,6 +23,7 @@ if [[ ! -z $WSL_INTEROP ]]; then where="Windows Subsystem for Linux v2 💚"; fi
 if [[ -f /.dockerenv ]]; then where="Inside a Docker container 📦"; fi
 if [[ ! -z $REMOTE_CONTAINERS_IPC ]]; then where="Inside a Devcontainer. Let's code! 💻"; fi
 if [[ ! -z $ACC_TERM_ID ]]; then where="Azure Cloud Shell ($ACC_LOCATION)\e[37m☁"; fi
+if [[ $CODESPACES == "true" ]]; then where="GitHub Codespaces\e[37m🐙"; fi
 if [[ "$(lsb_release -i)" =~ "Raspbian" ]]; then where="Raspberry Pi 🍇"; fi
 
 # And what shell is in use (default assume Zsh + P10K)
