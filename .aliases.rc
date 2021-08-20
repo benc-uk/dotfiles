@@ -38,6 +38,5 @@ alias az-cust='az account set -s 4a1bcb70-d139-4cf1-9071-eba4833dfe55'
 # Node
 alias npm-clean='rm -rf node_modules && rm package-lock.json && npm install'
 
-# Other shit
-alias roverold="/tf/rover/rover.sh"
-#alias rover="/home/ben/proj/aztfmod/rovergo/bin/rover"
+# Crap
+alias adr='/home/ben/proj/adr-tools/src/adr'

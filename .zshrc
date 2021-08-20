@@ -61,4 +61,6 @@ if [ -f $HOME/.local.rc ]; then source $HOME/.local.rc; fi
 # If you see anything after this line it's been auto-added, and probably should be removed/moved
 # ==============================================================================================
 
-export PATH="$HOME/.poetry/bin:$PATH"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

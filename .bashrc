@@ -125,24 +125,25 @@ LS_COLORS="ow=35:ln=31:di=32"
 export LS_COLORS
 
 # Extra aliases & env vars
-if [ -f $HOME/.aliases.rc ]; then source $HOME/.aliases.rc; fi
-if [ -f $HOME/.bashenv ]; then source $HOME/.bashenv; fi
+if [ -f "$HOME"/.aliases.rc ]; then source $HOME/.aliases.rc; fi
+if [ -f "$HOME"/.bashenv ]; then source $HOME/.bashenv; fi
 
 # Auto complete
 if command -v kubectl > /dev/null; then source <(kubectl completion bash); fi
 if command -v az > /dev/null; then source /etc/bash_completion.d/azure-cli; fi
 
 # Login banner thing
-if [ -f $HOME/.banner.rc ]; then source $HOME/.banner.rc; fi
+if [ -f "$HOME"/.banner.rc ]; then source $HOME/.banner.rc; fi
 
 if [[ $BASIC_PROMPT != 1 ]]; then
   # Fancy powerlevel like prompt, remove if you don't like it, or is slow
-  if [ -f $HOME/dotfiles/.bashprompt.rc ]; then source $HOME/dotfiles/.bashprompt.rc; fi
+  if [ -f "$HOME"/dotfiles/.bashprompt.rc ]; then source $HOME/dotfiles/.bashprompt.rc; fi
 fi
 
 # Local overrides and post steps
-if [ -f $HOME/.local.rc ]; then source $HOME/.local.rc; fi
+if [ -f "$HOME"/.local.rc ]; then source $HOME/.local.rc; fi
 
 # ==============================================================================================
 # If you see anything after this line it's been auto-added, and probably should be removed/moved
 # ==============================================================================================
+
