@@ -43,7 +43,7 @@ fi
 echo -e "\e[38;5;192m╭───── \e[38;5;202m$shelltype"
 echo -e "\e[38;5;155m├──❱ \e[38;5;135mEnviron: \e[38;5;45m$where"
 echo -e "\e[38;5;118m├──❱ \e[38;5;135mKernel:  \e[38;5;45m$(uname -r) 🚦"
-echo -e "\e[38;5;40m├──❱ \e[38;5;135mVersion: \e[38;5;45m$version 😸"
+echo -e "\e[38;5;40m├──❱ \e[38;5;135mVersion: \e[38;5;45m$version 🥇"
 echo -e "\e[38;5;34m├──❱ \e[38;5;135mIP:      \e[38;5;45m$ip / $publicip 📡"
 echo -e "\e[38;5;28m╰──❱ \e[38;5;135mHost:    \e[38;5;45m$(hostname) 🏠"
 echo -e ""
