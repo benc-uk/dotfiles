@@ -57,6 +57,9 @@ if [ -f $HOME/.banner.rc ]; then source $HOME/.banner.rc; fi
 # Local overrides, secrets and post steps ==============
 if [ -f $HOME/.local.rc ]; then source $HOME/.local.rc; fi
 
+# Enable BuildKit for Docker
+export DOCKER_BUILDKIT=1
+
 # ==============================================================================================
 # If you see anything after this line it's been auto-added, and probably should be removed/moved
 # ==============================================================================================
