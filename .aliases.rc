@@ -17,6 +17,7 @@ alias tf='terraform'
 alias timesync='sudo hwclock -s'
 alias py='python3'
 #alias http-server='deno run --allow-net --allow-read https://deno.land/std/http/file_server.ts -p 8080 --host localhost'
+alias bs='browser-sync start --server --single --no-ui --no-open --no-notify --watch'
 
 # Docker
 alias start-docker='sudo /etc/init.d/docker start'
@@ -37,6 +38,3 @@ alias az-cust='az account set -s 4a1bcb70-d139-4cf1-9071-eba4833dfe55'
 
 # Node
 alias npm-clean='rm -rf node_modules && rm package-lock.json && npm install'
-
-# Crap
-alias adr='/home/ben/proj/adr-tools/src/adr'
