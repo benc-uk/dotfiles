@@ -1,5 +1,8 @@
-[credential]
-	helper = /mnt/c/Tools/gcmw-v1.20.0/git-credential-manager.exe
+#[credential]
+#	helper = /mnt/c/Tools/gcmw-v1.20.0/git-credential-manager.exe
+#	#helper = /mnt/c/Tools/gcm/git-credential-manager-core.exe
+#[credential "https://dev.azure.com"]
+#	useHttpPath = true
 [user]
 	email = benc.uk@gmail.com
 	name = Ben Coleman
@@ -47,3 +50,6 @@
 	unstage = "!git reset HEAD"
 
 	branch-name = "!git rev-parse --abbrev-ref HEAD"
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/ben/.local/bin/gh auth git-credential
