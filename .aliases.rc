@@ -8,6 +8,7 @@ alias kgp='kubectl get pods'
 alias kgs='kubectl get svc'
 alias kgn='kubectl get nodes'
 alias klog='kubectl logs -f'
+alias kd='kubectl describe'
 
 # Misc
 alias wsl-ip="ip addr show eth0 | grep \"inet 1\" | awk '{print \$2}' | cut -d/ -f1"
