@@ -1,7 +1,10 @@
 #!/bin/bash
 
-image=${1:-busybox}
-cmd=${2:-ls}
+image=${1:-"alpine/curl"}
+cmd=${2:-"ps -ef"}
 
-echo "kubectl run test -it --rm --image=$image --restart=Never -- $cmd"
-kubectl run test -it --rm --image=$image --privileged --restart=Never -- $cmd
+echo "🚀 Running command:"
+echo "   kubectl run cmdrunner -it --rm --image=$image --restart=Never -- $cmd"
+echo
+
+kubectl run cmdrunner -it --rm --image="$image" --privileged --restart=Never -- $cmd
