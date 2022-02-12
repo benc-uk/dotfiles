@@ -11,14 +11,17 @@ alias klog='kubectl logs -f'
 alias kd='kubectl describe'
 
 # Misc
-alias wsl-ip="ip addr show eth0 | grep \"inet 1\" | awk '{print \$2}' | cut -d/ -f1"
 alias start-mongo='sudo mongod --logpath /var/log/mongodb/mongod.log --fork'
 alias py3='python3'
 alias tf='terraform'
-alias timesync='sudo hwclock -s'
 alias py='python3'
 #alias http-server='deno run --allow-net --allow-read https://deno.land/std/http/file_server.ts -p 8080 --host localhost'
 alias bs='browser-sync start --server --single --no-ui --no-open --no-notify --watch'
+
+# WSL4life
+alias timesync='sudo hwclock -s'
+alias wsl-ip="ip addr show eth0 | grep \"inet 1\" | awk '{print \$2}' | cut -d/ -f1"
+alias dnsfix='echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf'
 
 # Docker
 alias start-docker='sudo /etc/init.d/docker start'
@@ -35,7 +38,7 @@ alias gh-open='gh repo view --web'
 alias az-airs='az account set -s $AZ_SUB_AIRS && az account show -o table'
 alias az-vs='az account set -s $AZ_SUB_VS && az account show -o table'
 alias az-nuke='az group delete --no-wait --yes -g'
-alias az-cust='az account set -s 4a1bcb70-d139-4cf1-9071-eba4833dfe55'
+alias az-cust='az account set -s $AZ_SUB_CUST'
 
 # Node
 alias npm-clean='rm -rf node_modules && rm package-lock.json && npm install'
