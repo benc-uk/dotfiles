@@ -7,6 +7,7 @@ alias helm-clean='helm ls --short | xargs -L1 helm delete'
 alias kgp='kubectl get pods'
 alias kgs='kubectl get svc'
 alias kgn='kubectl get nodes'
+alias kga='kubectl get pods,svc,ing'
 alias klog='kubectl logs -f'
 alias kd='kubectl describe'
 
