@@ -33,6 +33,7 @@
 	lg = "!git --no-pager log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n "
 	s = "!git status"
 	sr = "!git show-ref --head --abbrev"
+  now = "!git --no-pager log -n 1 --pretty=oneline"
 
 	p = "!git push"
 	pf = "!git push --force" #origin $(git rev-parse --abbrev-ref HEAD)"
