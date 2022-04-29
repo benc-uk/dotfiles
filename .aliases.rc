@@ -27,7 +27,8 @@ alias dnsfix='echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf'
 # Docker
 alias start-docker='sudo /etc/init.d/docker start'
 alias stop-docker='sudo /etc/init.d/docker stop'
-alias docker-prune='docker container prune -f && docker image prune -f && docker volume prune -f'
+alias docker-prune='docker container prune -f && docker image prune -f && docker volume prune -f && docker buildx prune -f'
+alias docker-wipe='docker buildx prune -a && docker image prune -a'
 alias docker-clean='docker rm -f $(docker ps -a -q)'
 
 # Git & GitHub
