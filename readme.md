@@ -1,6 +1,6 @@
 # Dotfiles
 
-These are my personal Linux dotfiles, I use Zsh + Oh My Zsh and Powerlevel10k.  
+These are my personal Linux dotfiles, I use Zsh + [Oh My Zsh](https://ohmyz.sh/) and the [Powerlevel10k](https://github.com/romkatv/powerlevel10k) theme.
 These can be used on any "fresh" Linux system, or with Devcontainers / Codespaces
 
 This shell configuration is unlikely to be to everyone's tastes 😁
@@ -35,7 +35,14 @@ cd ~
 git clone https://github.com/benc-uk/dotfiles.git
 ```
 
-Run install
+Install zsh if it's not already installed
+
+```bash
+cd ~
+./dotfiles/install-zsh.sh
+```
+
+Run install to set up the dotfiles symlinks etc
 
 ```bash
 cd ~
