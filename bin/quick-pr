@@ -1,0 +1,15 @@
+#!/bin/bash
+set -e
+
+which gh > /dev/null || { echo -e "💥 Error! GitHub CLI not installed"; exit 1; }
+
+if [ $# -lt 3 ]; then
+  echo "Usage $0 {branchname} {message}"
+  exit 1
+fi
+
+git checkout -b "$1"
+git add -A
+git commit -m "$2"
+git push -u origin "$1"
+gh pr create --fill

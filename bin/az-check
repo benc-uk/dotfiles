@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Check CLI is installed
+which az > /dev/null || { echo -e "💥 Error! Azure CLI is not installed. https://aka.ms/azure-cli"; exit 1; }
+
+# It's OK to call az account show multiple times, it only reads from the local ~/.azure/ files
+SUB_ID=$(az account show --query id -o tsv)
+if [ -z "$SUB_ID" ]; then
+  echo -e "💥 \e[31mYou are not logged into Azure!"
+  exit 1
+fi
+
+SUB_NAME=$(az account show --query name -o tsv)
+TENANT_ID=$(az account show --query tenantId -o tsv)
+
+echo -e "⛅ \e[34mActive Azure subscription: \e[0m"
+echo -e "  📰 \e[34mSubscription: \e[33m$SUB_NAME ($SUB_ID)\e[0m"
+echo -e "  🔐 \e[34mTenant:       \e[33m$TENANT_ID\e[0m"
+
+echo -e -n "🤚 \e[95mIf these details are incorrect, press ctrl+c now to exit\n   Or any other key to continue...\e[0m"
+read -n 1 -s -r -p ""
+echo ""
+
+# Rest of script here :)

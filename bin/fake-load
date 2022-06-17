@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# VERY simple way to generate load, you are probably better off installing hey
+# and using it instead.
+
+if [ $# -lt 3 ]; then
+  echo "Usage: $0 {count} {concurrency} {url}"
+  exit 1
+fi
+
+echo "Making $1 calls to '$3', $2 concurrently..."
+seq "$1" | xargs -P "$2" -I NONE wget -nv -O /dev/null "$3"

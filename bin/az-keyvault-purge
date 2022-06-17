@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo -e "\e[31mWARNING! This will purge ALL soft deleted KeyVaults\e[0m"
+read -n 1 -s -r -p $'Press any key to continue, or ctrl-c to exit\n'
+
+list=$(az keyvault list-deleted --query "[].name" -o tsv)
+
+[[ $list == "" ]] && { echo "No deleted KeyVaults found! Bye..."; exit 1; }
+
+while IFS= read -r name; do
+  echo " - Purging KeyVault $name"
+  az keyvault purge -n "$name" --no-wait
+done <<< "$list"

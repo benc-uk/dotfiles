@@ -1,0 +1,13 @@
+#!/bin/bash
+
+which helm > /dev/null || { echo -e "💥 Error! helm not installed"; exit 1; }
+
+if [ $# -lt 1 ]; then
+  echo "Usage: $0 {namespace}"
+  exit 1
+fi
+
+echo -e "\e[31mWARNING! This will remove all Helm releases in the given namespace\e[0m"
+read -n 1 -s -r -p $'Press any key to continue, or ctrl-c to exit\n'
+
+helm ls -n "$1" --short | xargs -L1 helm delete -n "$1"
