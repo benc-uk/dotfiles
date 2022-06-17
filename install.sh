@@ -6,24 +6,27 @@ echo -e "╰──────────────────────�
 echo -e "\e[38;5;33mBen Coleman     \e[38;5;40mv1.0.6     🚀  🎁  💥\n"
 echo -e "\e[38;5;214m»»» 🙉 This script will remove & replace many of your personal dotfiles"
 echo -e "\e[38;5;214m»»» 🙊 If you have anything in these files/folders, please back them up:"
-echo -e "\e[38;5;214m»»» 🙈   \e[38;5;227m.zshrc .zshenv .bashenv .p10k.zsh .gitconfig .profile .bashrc ~/bin/ ~/tools/ ~/.oh-my-zsh"
+echo -e "\e[38;5;214m»»» 🙈   \e[38;5;227m.zshrc .zshenv .bashenv .p10k.zsh .gitconfig .profile .bashrc ~/.oh-my-zsh"
 echo -e "\e[38;5;214m»»» 🐵 Only continue with this script when it is ok to overwrite these files...\n\e[0m"
 
 # Need to use this as Codespaces clones the dotfile repo outside of $HOME
 DOTFILE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-PROMPT="1"
-if [[ $1 == "noprompt" ]]; then
-  PROMPT="0"
+CONFIRM="1"
+
+# Disable the confirmation in certain environments and if `noconfirm` is passed as an argument
+if [[ $1 == "noconfirm" ]]; then
+  CONFIRM="0"
 fi
 if [[ -f /.dockerenv ]]; then
-  PROMPT="0"
+  CONFIRM="0"
 fi
 if [[ $CODESPACES ]]; then
-  PROMPT="0"
+  CONFIRM="0"
 fi
 
-if [[ "$PROMPT" == "1" ]]; then
+# CONFIRM the user
+if [[ "$CONFIRM" == "1" ]]; then
   read -p "Happy to proceed? " -n 1 -r
   echo
   if [[ ! $REPLY =~ ^[Yy]$ ]]; then
@@ -31,9 +34,13 @@ if [[ "$PROMPT" == "1" ]]; then
   fi
 fi
 
-#
+# if gitconfig exists, save it
+if [ -f "$HOME"/.gitconfig ]; then
+  echo -e "\e[38;5;45m»»» 🧪 \e[32mFound existing .gitconfig, using existing file contents\n\e[0m"
+  cp "$HOME"/.gitconfig .gitconfig
+fi
+
 # Enable oh-my-zsh and p10k
-#
 if [ -f "/bin/zsh" ]; then
   echo -e "\e[38;5;45m»»» Zsh detected, setting up oh-my-zsh and powerlevel10k \e[0m"
   rm -rf "$HOME"/.oh-my-zsh
@@ -42,9 +49,7 @@ if [ -f "/bin/zsh" ]; then
   touch "$HOME"/.z
 fi
 
-#
 # Create symlinks for all dotfiles and bin directory
-#
 echo -e "\n\e[38;5;45m»»» Creating dotfile symlinks \e[0m"
 for f in .zshrc .p10k.zsh .gitconfig .profile .bashrc .aliases.rc .banner.rc bin
 do
@@ -67,13 +72,10 @@ if [ ! -f "$HOME"/.local.rc ]; then
 fi
 
 #
-# Clone my setup scripts
-#
-echo -e "\n\e[38;5;45m»»» Cloning tools repo to $HOME/tools \e[0m"
-rm -rf "$HOME"/tools
-git clone -q https://github.com/benc-uk/tools-install.git "$HOME"/tools
-
-#
-# zsh plugins
+# Install extra zsh plugins, like zsh-autosuggestions
 #
 git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
+
+# Done!
+echo -e "\e[38;5;45m»»» 🔧 \e[34mIf you want to update the P10k configuration run 'p10k configure'\e[0m"
+echo -e "\e[38;5;45m»»» 🪄  \e[34mInstallation complete! Changes will take effect when you open a new shell\e[0m\n"

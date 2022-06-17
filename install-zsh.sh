@@ -13,4 +13,4 @@ else
 fi
 
 echo "💠💠💠 NOTE! To change the default shell run: chsh -s /usr/bin/zsh \$USER"
-echo "💠💠💠 NOTE! This may prompt for a password 😥"
+echo "💠💠💠 This will prompt for your password, so it can't be automated 😥"
