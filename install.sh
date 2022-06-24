@@ -54,16 +54,16 @@ fi
 echo -e "\n\e[38;5;45m»»» Creating dotfile symlinks \e[0m"
 for f in .zshrc .p10k.zsh .gitconfig .profile .bashrc .aliases.rc .banner.rc bin
 do
-  echo -e "\e[38;5;45m»»» 📃  ~/$f --> $DOTFILE_DIR/$f"
+  echo -e "\e[38;5;45m»»» 📃  ~/$f \e[0m--> \e[38;5;46m$DOTFILE_DIR/$f\e[0m"
   rm -rf "$HOME"/$f
   ln -s "$DOTFILE_DIR"/$f "$HOME"/$f
 done
 
 # Create symlinks for env file, depending on zsh or bash
 rm -f "$HOME"/.bashenv "$HOME"/.zshenv
-echo -e "\e[38;5;45m»»» 📃  ~/.bashenv --> $DOTFILE_DIR/.env.rc "
+echo -e "\e[38;5;45m»»» 📃  ~/.bashenv \e[0m--> \e[38;5;46m$DOTFILE_DIR/.env.rc \e[0m"
 ln -s "$DOTFILE_DIR"/.env.rc "$HOME"/.bashenv
-echo -e "\e[38;5;45m»»» 📃  ~/.zshenv --> $DOTFILE_DIR/.env.rc "
+echo -e "\e[38;5;45m»»» 📃  ~/.zshenv \e[0m--> \e[38;5;46m$DOTFILE_DIR/.env.rc \e[0m"
 ln -s "$DOTFILE_DIR"/.env.rc "$HOME"/.zshenv
 
 # If .local.rc doesn't exist, create it

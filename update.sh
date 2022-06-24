@@ -1,6 +1,7 @@
 #!/bin/bash
 
-cd $HOME/dotfiles
+DIR="$( cd "$( dirname "$BASH_SOURCE" )" && pwd )"
+cd "$DIR" || exit
 
 echo -e "\e[34m»»» 💥 \e[32mUpdating dotfiles to latest on GitHub\e[0m"
 echo -e "\e[34m»»» 💥 \e[32mLocal edits \e[31mWILL BE OVERWRITTEN! 😲\e[0m"
