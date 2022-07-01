@@ -44,4 +44,4 @@ alias az-nuke='az group delete --no-wait --yes -g'
 alias az-cust='az account set -s $AZ_SUB_CUST'
 
 # Node
-alias npm-clean='rm -rf node_modules && rm package-lock.json && npm install'
+alias npm-clean='rm -rf node_modules && rm -rf package-lock.json && npm install'

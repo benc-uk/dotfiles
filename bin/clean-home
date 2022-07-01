@@ -1,0 +1,41 @@
+#!/bin/bash
+
+source ./lib.sh
+warning "This will remove rubbish from your home directory"
+
+rm -rf "$HOME"/.m2
+rm -rf "$HOME"/.wasmtime
+rm -rf "$HOME"/.azure-functions-core-tools
+rm -rf "$HOME"/.wget-hsts
+rm -rf "$HOME"/.yarn
+rm -rf "$HOME"/.step
+rm -rf "$HOME"/.tooling
+rm -rf "$HOME"/.sqlite_history
+rm -rf "$HOME"/.rover
+rm -rf "$HOME"/.rest-client
+rm -rf "$HOME"/.rest-client
+rm -rf "$HOME"/.redhat
+rm -rf "$HOME"/.pylint.d
+rm -rf "$HOME"/.porter
+rm -rf "$HOME"/.poetry
+rm -rf "$HOME"/.pex
+rm -rf "$HOME"/.node_repl_history
+rm -rf "$HOME"/.ngrok
+rm -rf "$HOME"/.ngrok2
+rm -rf "$HOME"/.loophole
+rm -rf "$HOME"/.gitmoji
+rm -rf "$HOME"/.devcontainer-cli
+rm -rf "$HOME"/.dbus
+rm -rf "$HOME"/.cluster-api
+rm -rf "$HOME"/.azurefunctions
+rm -rf "$HOME"/.azcopy
+rm -rf "$HOME"/.autorest
+rm -rf "$HOME"/.aspnet
+rm -rf "$HOME"/.vuerc
+rm -rf "$HOME"/.tflint.d
+rm -rf "$HOME"/.terraform.d
+rm -rf "$HOME"/.sudo_as_admin_successful
+rm -rf "$HOME"/.cargo
+rm -rf "$HOME"/.bicep
+rm -rf "$HOME"/.actrc
+

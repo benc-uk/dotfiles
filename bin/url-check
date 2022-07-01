@@ -7,11 +7,11 @@ declare -i okCount=0
 declare -i elapsed=0
 declare isUp="false"
 
+source ./lib.sh
+
 # Display usage
 usage(){
-echo -e "\e[32m╭──────────────────────────────────────────────────────────────╮"
-echo -e "│   🌍 \e[94murl-check.sh \e[96mCheck URL endpoint for HTTP responses 🚀\e[32m   │"
-echo -e "╰──────────────────────────────────────────────────────────────╯"
+banner "Check URL endpoint for HTTP responses" "box" "🌐" "💚"
 echo -e "\n\e[95mParameters:\e[37m"
 echo -e "     -u, --url       \e[33mURL to check (required)\e[37m"
 echo -e "     [-t, --time]    \e[33mMaximum number of seconds to poll for \e[92m(default: 60)\e[37m"

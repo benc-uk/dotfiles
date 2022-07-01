@@ -14,8 +14,8 @@ need "kubectl"
 NAMESPACE="$1"
 test "$NAMESPACE" || die "Missing arguments: kill-kubens <namespace>"
 
-echo -e "\e[31mWARNING! This will attempt to force removal of a stuck namespace. USE WITH CAUTION!\e[0m"
-read -n 1 -s -r -p $'Press any key to continue, or ctrl-c to exit\n'
+source ./lib.sh
+warning "This will attempt to force removal of a stuck namespace.\nUSE WITH CAUTION!"
 
 kubectl proxy &>/dev/null &
 PROXY_PID=$!

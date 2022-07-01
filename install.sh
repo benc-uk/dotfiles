@@ -30,7 +30,7 @@ if [[ "$CONFIRM" == "1" ]]; then
   read -p "Happy to proceed (y/N)? " -n 1 -r
   echo
   if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-      [[ "$0" = "$BASH_SOURCE" ]] && echo -e "\e[38;5;63m»»» 😇 \e[36mOK, exiting without making changes, bye!\n\e[0m" && exit 1 || return 1 
+    echo -e "\e[38;5;63m»»» 😇 \e[36mOK, exiting without making changes, bye!\n\e[0m" && exit 1 || return 1 
   fi
 fi
 

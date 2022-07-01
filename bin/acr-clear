@@ -11,8 +11,8 @@ if [ $# -lt 3 ]; then
   exit 1
 fi
 
-echo -e "\e[31mWARNING! This will remove all images matching '$3' from the ACR\e[0m"
-read -n 1 -s -r -p $'Press any key to continue, or ctrl-c to exit\n'
+source ./lib.sh
+warning "This will remove all images matching '$3' from the ACR"
 
 az acr repository show-tags -n "$1" --repository "$2" -o tsv | while read img ; do
   if [[ $img = *"$3"* ]]; then
