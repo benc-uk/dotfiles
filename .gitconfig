@@ -20,7 +20,9 @@
 	a = "!git add -A"
 	amend = "!git add -A && git commit --amend --no-edit"
 	c = "!git commit"
+	cs = "!git commit -s"
 	ac = "!git add -A && git commit -m"
+	acs = "!git add -A && git commit -s -m"
 
 	new = "!git checkout -b"
 	k = "!git checkout"
