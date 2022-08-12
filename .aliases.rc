@@ -19,6 +19,7 @@ alias py='python3'
 #alias http-server='deno run --allow-net --allow-read https://deno.land/std/http/file_server.ts -p 8080 --host localhost'
 alias bs='browser-sync start --server --single --no-ui --no-open --no-notify --watch'
 alias pubkey='cat ~/.ssh/id_rsa.pub'
+alias gmt='go mod tidy'
 
 # WSL4life
 alias timesync='sudo hwclock -s'
