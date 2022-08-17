@@ -1,0 +1,33 @@
+#!/bin/bash
+
+echo -e "\n\e[34m╔══════════════════════════════════╗"
+echo -e "║\e[33m       💪 Bicep Deployer 🚀\e[34m       ║"
+echo -e "╚══════════════════════════════════╝\e[0m"
+
+which az > /dev/null || { echo -e "💥 Error! Azure CLI not installed"; exit 1; }
+test -f ~/.azure/bin/bicep || { echo -e "💥 Error! Bicep not installed. Run 'az bicep install'"; exit 1; }
+
+# Param handling stuff
+OPTS=$(getopt -o t:p:l:s:h --long template:,location:,subscription:,parameters:,help -n 'parse-options' -- "$@")
+if [ $? != 0 ] ; then echo "Failed parsing options." >&2 ; usage; exit 1 ; fi
+eval set -- "$OPTS"
+
+# Param handling stuff
+while true; do
+  case "$1" in
+    -t | --template ) FILE="$2"; shift; shift;;
+    -p | --parameters ) PARAMS="$2"; shift; shift;;
+    -l | --location ) LOC="$2"; shift; shift;;
+    -s | --subscription ) SUB="$2"; shift; shift;;
+    -h | --help ) HELP=true; shift ;;
+    -- ) shift; break ;;
+    * ) break ;;
+  esac
+done
+
+# if LOC not set
+if 
+
+az deploy subscription --verbose \
+--template-file "$FILE" \
+--location "$LOC"

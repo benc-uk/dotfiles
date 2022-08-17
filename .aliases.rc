@@ -41,7 +41,7 @@ alias gh-open='gh repo view --web'
 # Azure CLI
 alias az-airs='az account set -s $AZ_SUB_AIRS && az account show -o table'
 alias az-vs='az account set -s $AZ_SUB_VS && az account show -o table'
-alias az-nuke='az group delete --no-wait --yes -g'
+alias az-nukerg='az group delete --no-wait --yes -g'
 alias az-cust='az account set -s $AZ_SUB_CUST'
 
 # Node
