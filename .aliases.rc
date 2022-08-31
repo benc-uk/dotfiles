@@ -16,7 +16,7 @@ alias start-mongo='sudo mongod --logpath /var/log/mongodb/mongod.log --fork'
 alias py3='python3'
 alias tf='terraform'
 alias py='python3'
-#alias http-server='deno run --allow-net --allow-read https://deno.land/std/http/file_server.ts -p 8080 --host localhost'
+alias serve='deno run --allow-net --allow-read https://deno.land/std/http/file_server.ts -p 8080 --host localhost'
 alias bs='browser-sync start --server --single --no-ui --no-open --no-notify --watch'
 alias pubkey='cat ~/.ssh/id_rsa.pub'
 alias gmt='go mod tidy'
@@ -39,10 +39,9 @@ alias gmc='git add . && gitmoji -c'
 alias gh-open='gh repo view --web'
 
 # Azure CLI
-alias az-airs='az account set -s $AZ_SUB_AIRS && az account show -o table'
-alias az-vs='az account set -s $AZ_SUB_VS && az account show -o table'
-alias az-nukerg='az group delete --no-wait --yes -g'
-alias az-cust='az account set -s $AZ_SUB_CUST'
+alias az-fdpo='az account set -s $AZ_SUB_FDPO && echo "Switched to Azure sub: $(az account show --query name -o tsv)"'
+alias az-cust='az account set -s $AZ_SUB_CUST && echo "Switched to Azure sub: $(az account show --query name -o tsv)"'
+alias az-nuke='az group delete --no-wait --yes -g'
 
 # Node
 alias npm-clean='rm -rf node_modules && rm -rf package-lock.json && npm install'

@@ -20,11 +20,11 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Ohmyzsh plugins
 plugins=(
-  git
-  npm
-  docker
+  #git
+  #npm
+  #docker
   encode64
-  helm
+  #helm
   z
   web-search
   zsh-autosuggestions
@@ -60,7 +60,3 @@ if [ -f $HOME/.local.rc ]; then source $HOME/.local.rc; fi
 # ==============================================================================================
 # If you see anything after this line it's been auto-added, and probably should be removed/moved
 # ==============================================================================================
-
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
