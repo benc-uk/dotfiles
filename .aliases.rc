@@ -17,7 +17,7 @@ alias py3='python3'
 alias tf='terraform'
 alias py='python3'
 alias serve='deno run --allow-net --allow-read https://deno.land/std/http/file_server.ts -p 8080 --host localhost'
-alias bs='browser-sync start --server --single --no-ui --no-open --no-notify --watch'
+alias bs='browser-sync start --server --no-ui --no-open --no-notify --watch'
 alias pubkey='cat ~/.ssh/id_rsa.pub'
 alias gmt='go mod tidy'
 
@@ -27,8 +27,8 @@ alias wsl-ip="ip addr show eth0 | grep \"inet 1\" | awk '{print \$2}' | cut -d/ 
 alias dnsfix='echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf'
 
 # Docker
-alias start-docker='sudo /etc/init.d/docker start'
-alias stop-docker='sudo /etc/init.d/docker stop'
+alias docker-start='sudo /etc/init.d/docker start'
+alias docker-stop='sudo /etc/init.d/docker stop'
 alias docker-prune='docker container prune -f && docker image prune -f && docker volume prune -f && docker buildx prune -f'
 alias docker-wipe='docker buildx prune -a && docker image prune -a'
 alias docker-clean='docker rm -f $(docker ps -a -q)'
