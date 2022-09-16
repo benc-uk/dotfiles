@@ -1,0 +1,39 @@
+#!/bin/bash
+set -eou pipefail
+
+# ==========================================
+# Git add, commit and push script
+# ==========================================
+
+msg=$1
+if [ -z "$msg" ]
+then
+    echo "😫 No commit message supplied!"
+    exit 1
+fi
+
+# get branch name
+branch=$(git rev-parse --abbrev-ref HEAD)
+
+if [ "$branch" = "master" ] || [ "$branch" = "main" ]
+then
+    echo "🚨 You are on master or main branch!"
+fi
+
+# get files changed
+files=$(git diff --name-only)
+echo "📄 Files changed: $(wc -l <<< "$files")"
+
+# Add changes to git
+git add .
+
+# get status
+status=$(git status --short)
+echo -e "$status"
+
+# Commit the changes
+git commit -m "$msg"
+
+# Push to the remote repository
+echo "🚀 Pushing to $branch"
+git push

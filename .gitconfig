@@ -42,7 +42,7 @@
   now = "!git --no-pager log -n 1 --pretty=oneline"
 
 	p = "!git push"
-	pf = "!git push --force" #origin $(git rev-parse --abbrev-ref HEAD)"
+	#pf = "!git push --force" #origin $(git rev-parse --abbrev-ref HEAD)"
 	publish = "!git push --set-upstream origin $(git branch-name)"
 	pub = "!git publish"
 
