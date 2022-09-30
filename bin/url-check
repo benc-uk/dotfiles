@@ -7,7 +7,9 @@ declare -i okCount=0
 declare -i elapsed=0
 declare isUp="false"
 
-source ./lib.sh
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+# shellcheck disable=SC1091 
+source "$DIR"/lib.sh
 
 # Display usage
 usage(){
@@ -21,8 +23,7 @@ echo -e "     [-s, --search]  \e[33mOptional content check, grep for this string
 echo -e "     [-h, --help]    \e[33mShow this help text\e[37m"
 }
 
-OPTS=$(getopt -o u:t:d:c:s:h --long url:,time:,delay:,count:,search:,help -n 'parse-options' -- "$@")
-if [ $? != 0 ] ; then echo "Failed parsing options." >&2 ; usage; exit 1 ; fi
+if ! OPTS=$(getopt -o u:t:d:c:s:h --long url:,time:,delay:,count:,search:,help -n 'parse-options' -- "$@"); then echo "Failed parsing options." >&2 ; usage; exit 1 ; fi
 eval set -- "$OPTS"
 
 while true; do
@@ -44,7 +45,7 @@ if [[ ${HELP} = true ]] || [ -z "${url}" ];  then
 fi
 
 # Check for impossible parameter combination ie. too many checks and delays in given time limit
-if (( $delay * $count > $time)); then
+if (( delay * count > time)); then
   echo -e "\e[31m### Error! The time ($time) provided is too short given the delay ($delay) and count ($count)\e[0m"
   exit 1
 fi
@@ -70,11 +71,10 @@ do
   else
     if (( urlstatus >= 200 )) && (( urlstatus < 300 )); then
       # Check returned content with grep if check specified
-      if [ ! -z "$search" ]; then
-        grep -q "$search" "/tmp/$tmpfile"
+      if [ -n "$search" ]; then
         # Only count as a success if string grep passed
-        if (( $? == 0)); then
-          ((okCount=okCount + 1))
+        if grep -q "$search" "/tmp/$tmpfile"; then
+          (( okCount=okCount + 1 ))
           msg="✅ \e[32m$urlstatus 🔍 Content check for '$search' passed"
         else
           msg="❌ \e[91m$urlstatus 🔍 Content check for '$search' failed"
@@ -85,7 +85,7 @@ do
         msg="✅ \e[32m$urlstatus "
       fi
 
-      if (( $okCount >= $count )); then isUp="true"; fi
+      if (( okCount >= count )); then isUp="true"; fi
     else
       # Bad status code
       msg="❌ \e[91m$urlstatus "
