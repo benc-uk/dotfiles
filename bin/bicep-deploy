@@ -25,9 +25,24 @@ while true; do
   esac
 done
 
-# if LOC not set
-if 
+# check locations
+if [[ -z $LOC ]]; then
+  echo -e "🌍 Using default location 'westeurope'"
+  LOC="westeurope"
+fi
 
-az deploy subscription --verbose \
+if [[ -z $SUB ]]; then
+  SUB=$(az account show --query id -o tsv)
+  echo -e "🔑 Using default subscription '$(az account show --query name -o tsv)'"
+fi
+
+if [[ -z $FILE ]]; then
+  echo -e "💥 Error! Template not specified. Use -t or --template to specify a template"
+  exit 1
+fi
+
+az deployment sub create --verbose \
 --template-file "$FILE" \
---location "$LOC"
+--location "$LOC" \
+--name "bicep-deploy-$(date +%s)" \
+--subscription "$SUB" 
