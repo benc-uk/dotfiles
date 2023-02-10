@@ -24,7 +24,9 @@ alias gmt='go mod tidy'
 # WSL4life
 alias timesync='sudo hwclock -s'
 alias wsl-ip="ip addr show eth0 | grep \"inet 1\" | awk '{print \$2}' | cut -d/ -f1"
+alias pub-ip='echo -e "$(curl -sSL ifconfig.me)"'
 alias dnsfix='echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf'
+alias ntpsync='sudo ntpdate time.windows.com'
 
 # Docker
 alias docker-start='sudo /etc/init.d/docker start'
