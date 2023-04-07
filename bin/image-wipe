@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+    echo "Remove all docker images that contain a substring in their name."
+    echo "Usage: image-wipe <substring>"
+    exit 1
+fi
+
+docker rmi $(docker images | grep "$1" | tr -s ' ' | cut -d ' ' -f 3)
