@@ -41,7 +41,8 @@ alias gmc='git add . && gitmoji -c'
 alias gh-open='gh repo view --web'
 
 # Azure CLI
-alias az-fdpo='az account set -s $AZ_SUB_FDPO && echo "Switched to Azure sub: $(az account show --query name -o tsv)"'
+alias az-mine='az account set -s $AZ_SUB_MINE && echo "Switched to Azure sub: $(az account show --query name -o tsv)"'
+alias az-crew='az account set -s $AZ_SUB_CREW && echo "Switched to Azure sub: $(az account show --query name -o tsv)"'
 alias az-cust='az account set -s $AZ_SUB_CUST && echo "Switched to Azure sub: $(az account show --query name -o tsv)"'
 alias az-nuke='az group delete --no-wait --yes -g'
 
