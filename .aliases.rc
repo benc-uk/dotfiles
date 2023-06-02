@@ -39,6 +39,7 @@ alias docker-clean='docker rm -f $(docker ps -a -q)'
 alias g='git'
 alias gmc='git add . && gitmoji -c'
 alias gh-open='gh repo view --web'
+alias main='git checkout main'
 
 # Azure CLI
 alias az-mine='az account set -s $AZ_SUB_MINE && echo "Switched to Azure sub: $(az account show --query name -o tsv)"'
