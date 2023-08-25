@@ -20,6 +20,7 @@ alias serve='deno run --allow-net --allow-read https://deno.land/std/http/file_s
 alias bs='browser-sync start --server --no-ui --no-open --no-notify --watch'
 alias pubkey='cat ~/.ssh/id_rsa.pub'
 alias gmt='go mod tidy'
+alias winexplore='/mnt/c/Windows/SysWOW64/explorer.exe .'
 
 # WSL4life
 alias timesync='sudo hwclock -s'
@@ -37,9 +38,7 @@ alias docker-clean='docker rm -f $(docker ps -a -q)'
 
 # Git & GitHub
 alias g='git'
-alias gmc='git add . && gitmoji -c'
 alias gh-open='gh repo view --web'
-alias main='git checkout main'
 alias gh-emu='cp /home/$USER/.config/gh/hosts.yml.emu /home/$USER/.config/gh/hosts.yml && gh auth status'
 alias gh-pub='cp /home/$USER/.config/gh/hosts.yml.pub /home/$USER/.config/gh/hosts.yml && gh auth status'
 
