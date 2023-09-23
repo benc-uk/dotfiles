@@ -82,6 +82,10 @@ if [ ! -f "$HOME"/.local.rc ]; then
   echo "# Put local overrides and other customizations here. These can be secrets, etc." > "$HOME"/.local.rc
 fi
 
+# If create .npm-global
+echo -e "\e[38;5;45m»»» Creating ~/.npm-global directory \e[0m"
+mkdir -p "$HOME"/.npm-global
+
 # Install extra zsh plugins, like zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
 
