@@ -1,6 +1,10 @@
 # Get eth0 IP address or fallback to local
-if command -v ip &> /dev/null; then
-  ip=$(ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)
+if which ip &> /dev/null; then
+  ipout=$(ip addr show eth0 2> /dev/null)
+  if [ $? -eq 1 ]; then
+    ipout=$(ip addr show wifi0 2> /dev/null)
+  fi
+  ip=$(echo $ipout | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)
 else
   ip=$(hostname -i)
 fi
