@@ -40,8 +40,8 @@ alias docker-clean='docker rm -f $(docker ps -a -q)'
 # Git & GitHub
 alias g='git'
 alias gh-open='gh repo view --web'
-alias gh-emu='cp /home/$USER/.config/gh/hosts.yml.emu /home/$USER/.config/gh/hosts.yml && gh auth status'
-alias gh-pub='cp /home/$USER/.config/gh/hosts.yml.pub /home/$USER/.config/gh/hosts.yml && gh auth status'
+#alias gh-emu='cp /home/$USER/.config/gh/hosts.yml.emu /home/$USER/.config/gh/hosts.yml && gh auth status'
+#alias gh-pub='cp /home/$USER/.config/gh/hosts.yml.pub /home/$USER/.config/gh/hosts.yml && gh auth status'
 
 # Azure CLI
 alias az-mine='az account set -s $AZ_SUB_MINE && echo "Switched to Azure sub: $(az account show --query name -o tsv)"'

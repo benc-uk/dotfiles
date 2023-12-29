@@ -154,3 +154,7 @@ if [ -f "$HOME"/.local.rc ]; then source "$HOME"/.local.rc; fi
 export PATH=$PATH:/usr/local/go/bin
 
 export PATH=$PATH:/usr/local/go/bin
+
+export PATH=$PATH:/usr/local/go/bin
+
+export PATH=$PATH:/usr/local/go/bin
