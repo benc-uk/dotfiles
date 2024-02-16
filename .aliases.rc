@@ -44,6 +44,7 @@ alias gh-open='gh repo view --web'
 # Azure CLI
 alias az-mine='az account set -s $AZ_SUB_MINE && echo "Switched to Azure sub: $(az account show --query name -o tsv)"'
 alias az-crew='az account set -s $AZ_SUB_CREW && echo "Switched to Azure sub: $(az account show --query name -o tsv)"'
+alias az-lmsp05='az account set -s $AZ_SUB_LMSP05 && echo "Switched to Azure sub: $(az account show --query name -o tsv)"'
 alias az-cust='az account set -s $AZ_SUB_CUST && echo "Switched to Azure sub: $(az account show --query name -o tsv)"'
 alias az-nuke='az group delete --no-wait --yes -g'
 
