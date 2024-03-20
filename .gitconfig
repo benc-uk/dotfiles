@@ -20,9 +20,6 @@ default = simple
 [pull]
 rebase = false
 
-[core]
-editor = micro
-
 [init]
 defaultBranch = main
 
