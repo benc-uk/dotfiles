@@ -3,11 +3,9 @@ email = benc.uk@gmail.com
 name = Ben Coleman
 
 [credential "https://github.com"]
-helper =
 helper = !/home/ben/.local/bin/gh auth git-credential
 
 [credential "https://gist.github.com"]
-helper =
 helper = !/home/ben/.local/bin/gh auth git-credential
 
 [credential "https://gitlab.dx1.lseg.com"]

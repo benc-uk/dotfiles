@@ -3,7 +3,7 @@
 echo -e "\n\e[38;5;135m╭───────────────────────────────────────────╮"
 echo -e "│\e[38;5;220m    Dotfiles, Oh My Zsh & P10k Installer \e[38;5;135m  │"
 echo -e "╰───────────────────────────────────────────╯"
-echo -e "\e[38;5;33mBen Coleman     \e[38;5;40mv1.0.6     🚀  🎁  💥\n"
+echo -e "\e[38;5;33mBen Coleman     \e[38;5;40mv1.1.0     🚀  🎁  💥\n"
 echo -e "\e[38;5;63m»»» 🙉\e[38;5;214m This script will remove & replace many of your personal dotfiles"
 echo -e "\e[38;5;63m»»» 🙊\e[38;5;214m If you have anything in these files, please back them up:"
 echo -e "\e[38;5;63m»»» 🙈   \e[37m.zshrc .zshenv .bashenv .p10k.zsh .gitconfig .profile .bashrc ~/bin"
@@ -19,10 +19,13 @@ if [[ $1 == "noconfirm" ]]; then
   CONFIRM="0"
 fi
 if [[ -f /.dockerenv ]]; then
-  CONFIRM="0"
+  CONFIRM="0" 
 fi
 if [[ $CODESPACES ]]; then
-  CONFIRM="0"
+  CONFIRM="0" # Codespaces
+fi
+if [[ $REMOTE_CONTAINERS ]]; then
+  CONFIRM="0" # This should detect if we are in a devcontainer
 fi
 
 # Confirm with the user
@@ -34,15 +37,15 @@ if [[ "$CONFIRM" == "1" ]]; then
   fi
 fi
 
-# if gitconfig exists, save it
+# If gitconfig exists, do not replace it
 if [ -f "$HOME"/.gitconfig ]; then
-  echo -e "\e[38;5;45m»»» 🧪 \e[32mFound existing .gitconfig, using existing file contents\n\e[0m"
-  cp "$HOME"/.gitconfig .gitconfig
+  echo -e "\e[38;5;45m»»» 🧪 \e[32mFound existing .gitconfig, backing it up\n\e[0m"
+  mv "$HOME"/.gitconfig "$HOME"/.gitconfig-backup
+  cp "$DOTFILE_DIR"/.gitconfig "$HOME"/.gitconfig
 fi
 
-set -e
 
-# check if zsh is installed
+# Check if zsh is installed and try to install it
 if [ -f /bin/zsh ]; then
   echo -e "\e[38;5;45m»»» 🐚 \e[32mFound zsh, this is good 😄\e[0m"
 else
@@ -50,6 +53,8 @@ else
   sudo apt-get install -y -qq zsh
   echo -e "\e[38;5;45m»»» 🐚 \e[31mNOTE! To change the default shell to zsh run:\e[0m chsh -s /usr/bin/zsh \$USER"
 fi
+
+set -e
 
 # Enable oh-my-zsh and p10k
 if [ -f "/bin/zsh" ]; then
