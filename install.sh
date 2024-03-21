@@ -55,7 +55,8 @@ fi
 if [ -f "/bin/zsh" ]; then
   echo -e "\e[38;5;45m»»» Zsh detected, setting up oh-my-zsh and powerlevel10k \e[0m"
   rm -rf "$HOME"/.oh-my-zsh
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  # Use a local copy of the install script, as the URL is blocked in some environments
+  "$DOTFILE_DIR"/install-oh-my-zsh.sh --unattended
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME"/.oh-my-zsh/custom/themes/powerlevel10k
   touch "$HOME"/.z
 fi
