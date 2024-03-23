@@ -44,7 +44,6 @@ if [ -f "$HOME"/.gitconfig ]; then
   cp "$DOTFILE_DIR"/.gitconfig "$HOME"/.gitconfig
 fi
 
-
 # Check if zsh is installed and try to install it
 if [ -f /bin/zsh ]; then
   echo -e "\e[38;5;45m»»» 🐚 \e[32mFound zsh, this is good 😄\e[0m"
@@ -88,7 +87,7 @@ if [ ! -f "$HOME"/.local.rc ]; then
   echo "# Put local overrides and other customizations here. These can be secrets, etc." > "$HOME"/.local.rc
 fi
 
-# If create .npm-global
+# Create .npm-global
 echo -e "\e[38;5;45m»»» Creating ~/.npm-global directory \e[0m"
 mkdir -p "$HOME"/.npm-global
 

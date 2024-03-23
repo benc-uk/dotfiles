@@ -42,7 +42,7 @@ eval $(ssh-agent -s) > /dev/null
 ssh-add ~/.ssh/id_rsa 2> /dev/null
 
 # LS_COLORS
-LS_COLORS="ow=35:ln=31:di=32"
+LS_COLORS="ow=35:ln=36:di=32"
 export LS_COLORS
 
 # Extra aliases ======================
