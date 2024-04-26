@@ -19,7 +19,7 @@ alias winexplore='/mnt/c/Windows/SysWOW64/explorer.exe .'
 
 # Python
 alias venv-act='if [ -d .venv ]; then source .venv/bin/activate; elif [ -d venv ]; then source venv/bin/activate; else echo "No virtualenv found!"; fi'
-alias venv-new='(python3.11 -m venv .venv || python3 -m venv .venv) && source .venv/bin/activate'
+alias venv-new='(python3.10 -m venv .venv || python3 -m venv .venv) && source .venv/bin/activate'
 alias venv-del='deactivate && rm -rf .venv'
 
 # WSL4life

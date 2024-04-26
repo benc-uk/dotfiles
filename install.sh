@@ -39,11 +39,11 @@ fi
 
 # If gitconfig exists, do not replace it
 if [ -f "$HOME"/.gitconfig ]; then
-  echo -e "\e[38;5;45m»»» 🧪 \e[32mFound existing .gitconfig, backing it up\n\e[0m"
-  mv "$HOME"/.gitconfig "$HOME"/.gitconfig-backup
+  echo -e "\e[38;5;45m»»» 🧪 \e[32mFound existing .gitconfig, leaving it alone!\n\e[0m"
+else
+  echo -e "\e[38;5;45m»»» 🧪 \e[31mNo existing .gitconfig, setting it up\e[0m"
   cp "$DOTFILE_DIR"/.gitconfig "$HOME"/.gitconfig
 fi
-
 
 # Check if zsh is installed and try to install it
 if [ -f /bin/zsh ]; then
