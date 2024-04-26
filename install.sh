@@ -88,7 +88,7 @@ if [ ! -f "$HOME"/.local.rc ]; then
   echo "# Put local overrides and other customizations here. These can be secrets, etc." > "$HOME"/.local.rc
 fi
 
-# If create .npm-global
+# Create .npm-global
 echo -e "\e[38;5;45m»»» Creating ~/.npm-global directory \e[0m"
 mkdir -p "$HOME"/.npm-global
 
