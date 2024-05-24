@@ -43,11 +43,13 @@ if [[ "$CONFIRM" == "1" ]]; then
 fi
 
 # If gitconfig exists, do not replace it
-if [ -f "$HOME"/.gitconfig ]; then
-  echo -e "\e[38;5;45m»»» 🧪 \e[32mFound existing .gitconfig, leaving it alone!\n\e[0m"
-else
-  echo -e "\e[38;5;45m»»» 🧪 \e[31mNo existing .gitconfig, setting it up\e[0m"
-  cp "$DOTFILE_DIR"/.gitconfig "$HOME"/.gitconfig
+if [[ "$GIT_CONFIG" == "1" ]]; then
+  if [ -f "$HOME"/.gitconfig ]; then
+    echo -e "\e[38;5;45m»»» 🧪 \e[32mFound existing .gitconfig, leaving it alone!\n\e[0m"
+  else
+    echo -e "\e[38;5;45m»»» 🧪 \e[31mNo existing .gitconfig, setting it up\e[0m"
+    cp "$DOTFILE_DIR"/.gitconfig "$HOME"/.gitconfig
+  fi
 fi
 
 # Check if zsh is installed and try to install it
@@ -79,12 +81,6 @@ do
   rm -rf "$HOME"/$f
   ln -s "$DOTFILE_DIR"/$f "$HOME"/$f
 done
-
-# Git config or not
-if [[ "$GIT_CONFIG" == "1" ]]; then
-  echo -e "\e[38;5;45m»»» 🧪 \e[32mSetting up gitconfig\e[0m"
-  cp "$DOTFILE_DIR"/.gitconfig "$HOME"/.gitconfig
-fi
 
 # Create symlinks for env file, depending on zsh or bash
 rm -f "$HOME"/.bashenv "$HOME"/.zshenv
