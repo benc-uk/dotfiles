@@ -13,7 +13,7 @@ echo -e "\e[38;5;63m»»» 🐵\e[38;5;214m Only continue with this script when 
 DOTFILE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 CONFIRM="1"
-GIT_CONFIG="0"
+GIT_CONFIG="1"
 
 # Disable the confirmation in certain environments and if `noconfirm` is passed as an argument
 if [[ $1 == "noconfirm" ]]; then
@@ -27,10 +27,7 @@ if [[ $CODESPACES ]]; then
 fi
 if [[ $REMOTE_CONTAINERS ]]; then
   CONFIRM="0" # This should detect if we are in a devcontainer
-fi
-
-if [[ $1 == "gitconfig" ]]; then
-  GIT_CONFIG="1"
+  GIT_CONFIG="0"
 fi
 
 # Confirm with the user
