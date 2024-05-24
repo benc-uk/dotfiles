@@ -13,6 +13,7 @@ echo -e "\e[38;5;63m»»» 🐵\e[38;5;214m Only continue with this script when 
 DOTFILE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 CONFIRM="1"
+GIT_CONFIG="1"
 
 # Disable the confirmation in certain environments and if `noconfirm` is passed as an argument
 if [[ $1 == "noconfirm" ]]; then
@@ -26,6 +27,10 @@ if [[ $CODESPACES ]]; then
 fi
 if [[ $REMOTE_CONTAINERS ]]; then
   CONFIRM="0" # This should detect if we are in a devcontainer
+fi
+
+if [[ $1 == "nogitconfig" ]]; then
+  GIT_CONFIG="0"
 fi
 
 # Confirm with the user
@@ -68,12 +73,18 @@ fi
 
 # Create symlinks for all dotfiles and bin directory
 echo -e "\n\e[38;5;45m»»» Creating dotfile symlinks \e[0m"
-for f in .zshrc .p10k.zsh .gitconfig .profile .bashrc .aliases.rc .banner.rc bin
+for f in .zshrc .p10k.zsh .profile .bashrc .aliases.rc .banner.rc bin
 do
   echo -e "\e[38;5;45m»»» 📃  ~/$f \e[0m--> \e[38;5;46m$DOTFILE_DIR/$f\e[0m"
   rm -rf "$HOME"/$f
   ln -s "$DOTFILE_DIR"/$f "$HOME"/$f
 done
+
+# Git config or not
+if [[ "$GIT_CONFIG" == "1" ]]; then
+  echo -e "\e[38;5;45m»»» 🧪 \e[32mSetting up gitconfig\e[0m"
+  cp "$DOTFILE_DIR"/.gitconfig "$HOME"/.gitconfig
+fi
 
 # Create symlinks for env file, depending on zsh or bash
 rm -f "$HOME"/.bashenv "$HOME"/.zshenv
