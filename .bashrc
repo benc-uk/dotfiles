@@ -147,5 +147,3 @@ if [ -f "$HOME"/.local.rc ]; then source "$HOME"/.local.rc; fi
 # ==============================================================================================
 # Anything after this line has been auto-added, and probably should be removed/moved
 # ==============================================================================================
-
-export PATH=$PATH:/usr/local/go/bin
