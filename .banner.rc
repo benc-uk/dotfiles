@@ -1,8 +1,10 @@
+#!/bin/bash
+
 # Loop though the following eth0, wifi0, docker0, tap0 until we find a valid IP address
 declare -a interfaces=("eth0" "wifi0" "docker0" "tap0")
 declare ip="Unknown"
 for i in "${interfaces[@]}"; do
-  ip=$(ip addr show $i 2>/dev/null | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | head -n 1)
+  ip=$(ip addr show "$i" 2>/dev/null | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | head -n 1)
   if [[ ! -z $ip ]]; then break; fi
 done
 
@@ -19,11 +21,11 @@ publicip=$(cat /tmp/publicip)
 
 # Work out where we are running
 where="Some Linux system 🤷"
-if [[ ! -z $WSL_DISTRO_NAME ]]; then where="Windows Subsystem for Linux v1 💙"; fi
-if [[ ! -z $WSL_INTEROP ]]; then where="Windows Subsystem for Linux v2 💚"; fi
+if [[ -n $WSL_DISTRO_NAME ]]; then where="Windows Subsystem for Linux v1 💙"; fi
+if [[ -n $WSL_INTEROP ]]; then where="Windows Subsystem for Linux v2 💚"; fi
 if [[ -f /.dockerenv ]]; then where="Inside a Docker container 📦"; fi
-if [[ ! -z $REMOTE_CONTAINERS_IPC ]]; then where="Inside a Devcontainer. Let's code! 💻"; fi
-if [[ ! -z $ACC_TERM_ID ]]; then where="Azure Cloud Shell ($ACC_LOCATION)\e[37m☁"; fi
+if [[ -n $REMOTE_CONTAINERS_IPC ]]; then where="Inside a Devcontainer. Let's code! 💻"; fi
+if [[ -n $ACC_TERM_ID ]]; then where="Azure Cloud Shell ($ACC_LOCATION)\e[37m☁"; fi
 if [[ $CODESPACES == "true" ]]; then where="GitHub Codespaces\e[37m🐙"; fi
 if [[ "$(lsb_release -i)" =~ "Raspbian" ]]; then where="Raspberry Pi 🍇"; fi
 

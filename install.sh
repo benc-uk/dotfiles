@@ -47,6 +47,8 @@ if [[ "$GIT_CONFIG" == "1" ]]; then
     echo -e "\e[38;5;45m»»» 🧪 \e[31mNo existing .gitconfig, setting it up\e[0m"
     cp "$DOTFILE_DIR"/.gitconfig "$HOME"/.gitconfig
   fi
+else
+  echo -e "\e[38;5;45m»»» 🧪 \e[31mSkipping .gitconfig setup\e[0m"
 fi
 
 # Check if zsh is installed and try to install it

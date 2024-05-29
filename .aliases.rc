@@ -24,7 +24,6 @@ alias venv-del='deactivate && rm -rf .venv'
 
 # WSL4life
 alias timesync='sudo hwclock -s'
-alias wsl-ip="ip addr show eth0 | grep \"inet 1\" | awk '{print \$2}' | cut -d/ -f1"
 alias pub-ip='echo -e "$(curl -sSL ifconfig.me)"'
 alias dnsfix='echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf'
 alias ntpsync='sudo ntpdate time.windows.com'
@@ -39,14 +38,8 @@ alias docker-clean='docker rm -f $(docker ps -a -q)'
 # Git & GitHub
 alias g='git'
 alias gh-open='gh repo view --web'
-#alias gh-emu='cp /home/$USER/.config/gh/hosts.yml.emu /home/$USER/.config/gh/hosts.yml && gh auth status'
-#alias gh-pub='cp /home/$USER/.config/gh/hosts.yml.pub /home/$USER/.config/gh/hosts.yml && gh auth status'
 
 # Azure CLI
-alias az-mine='az account set -s $AZ_SUB_MINE && echo "Switched to Azure sub: $(az account show --query name -o tsv)"'
-alias az-crew='az account set -s $AZ_SUB_CREW && echo "Switched to Azure sub: $(az account show --query name -o tsv)"'
-alias az-lmsp05='az account set -s $AZ_SUB_LMSP05 && echo "Switched to Azure sub: $(az account show --query name -o tsv)"'
-alias az-cust='az account set -s $AZ_SUB_CUST && echo "Switched to Azure sub: $(az account show --query name -o tsv)"'
 alias az-nuke='az group delete --no-wait --yes -g'
 
 # Node
