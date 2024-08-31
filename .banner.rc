@@ -28,6 +28,7 @@ if [[ -n $REMOTE_CONTAINERS_IPC ]]; then where="Inside a Devcontainer. Let's cod
 if [[ -n $ACC_TERM_ID ]]; then where="Azure Cloud Shell ($ACC_LOCATION)\e[37m☁"; fi
 if [[ $CODESPACES == "true" ]]; then where="GitHub Codespaces\e[37m🐙"; fi
 if [[ "$(lsb_release -i)" =~ "Raspbian" ]]; then where="Raspberry Pi 🍇"; fi
+if [[ -n "$MINGW_PREFIX" ]]; then where="Git Bash on Windows 🐧"; fi
 
 # And what shell is in use (default assume Zsh + P10K)
 shelltype="🚀 Oh My Zsh \e[37m& \e[38;5;226mPowerlevel10K"
