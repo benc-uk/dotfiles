@@ -24,6 +24,8 @@ if [[ -f /.dockerenv ]]; then
 fi
 if [[ $CODESPACES ]]; then
   CONFIRM="0" # Codespaces
+  # Some hack for codespaces, as the dotfiles are cloned outside of $HOME
+  ln -s /workspaces/.codespaces/.persistedshare/dotfiles $HOME/dotfiles
 fi
 if [[ $REMOTE_CONTAINERS ]]; then
   CONFIRM="0" # This should detect if we are in a devcontainer
