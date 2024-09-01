@@ -1,7 +1,7 @@
 #!/bin/bash
 
-image=${1:-"alpine/curl"}
-cmd=${2:-"ls"}
+cmd=${1:-"ls"}
+image=${2:-"alpine"}
 
 echo "🚀 Running command:"
 echo "   kubectl run cmdrunner -it --rm --restart=Never --image=$image -- $cmd"
