@@ -1,11 +1,26 @@
 #!/bin/bash
 
+environLookup() {
+  if [[ -n $WSL_INTEROP ]]; then echo "Windows Subsystem for Linux v2 💚" && return 0; fi
+  if [[ -n $WSL_DISTRO_NAME ]]; then echo "Windows Subsystem for Linux v1 💙" && return 0; fi
+  if [[ -f /.dockerenv ]]; then echo "Inside a Docker container 📦" && return 0; fi
+  if [[ -n $REMOTE_CONTAINERS_IPC ]]; then echo "Inside a Devcontainer. Let's code! 💻" && return 0; fi
+  if [[ -n $ACC_TERM_ID ]]; then echo -e "Azure Cloud Shell ($ACC_LOCATION)\e[37m💭" && return 0; fi
+  if [[ $CODESPACES == "true" ]]; then echo -e "GitHub Codespaces\e[37m🐙" && return 0; fi
+  if command -v lsb_release &> /dev/null; then
+    if [[ "$(lsb_release -i)" =~ "Raspbian" ]]; then echo "Raspberry Pi 🍇" && return 0; fi
+  fi
+  if [[ -n "$MINGW_PREFIX" ]]; then echo "MSYS/Cygwin on Windows 🐧" && return 0; fi
+
+  echo "Some Linux system 🤷"
+}
+
 # Loop though the following eth0, wifi0, docker0, tap0 until we find a valid IP address
 declare -a interfaces=("eth0" "wifi0" "docker0" "tap0")
 declare ip="Unknown"
 for i in "${interfaces[@]}"; do
   ip=$(ip addr show "$i" 2>/dev/null | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | head -n 1)
-  if [[ ! -z $ip ]]; then break; fi
+  if [[ -n $ip ]]; then break; fi
 done
 
 # Get public IP address and cache results
@@ -20,15 +35,7 @@ fi
 publicip=$(cat /tmp/publicip)
 
 # Work out where we are running
-where="Some Linux system 🤷"
-if [[ -n $WSL_DISTRO_NAME ]]; then where="Windows Subsystem for Linux v1 💙"; fi
-if [[ -n $WSL_INTEROP ]]; then where="Windows Subsystem for Linux v2 💚"; fi
-if [[ -f /.dockerenv ]]; then where="Inside a Docker container 📦"; fi
-if [[ -n $REMOTE_CONTAINERS_IPC ]]; then where="Inside a Devcontainer. Let's code! 💻"; fi
-if [[ -n $ACC_TERM_ID ]]; then where="Azure Cloud Shell ($ACC_LOCATION)\e[37m☁"; fi
-if [[ $CODESPACES == "true" ]]; then where="GitHub Codespaces\e[37m🐙"; fi
-if [[ "$(lsb_release -i)" =~ "Raspbian" ]]; then where="Raspberry Pi 🍇"; fi
-if [[ -n "$MINGW_PREFIX" ]]; then where="Git Bash on Windows 🐧"; fi
+where=$(environLookup)
 
 # And what shell is in use (default assume Zsh + P10K)
 shelltype="🚀 Oh My Zsh \e[37m& \e[38;5;226mPowerlevel10K"
@@ -37,9 +44,8 @@ if [[ $0 =~ "bash" ]]; then shelltype="👍 Standard \e[38;5;226mBash \e[38;5;20
 # lsb_release might not be installed :/
 version="Unknown!"
 if test -f /etc/os-release; then
-  . /etc/os-release
-  version=$VERSION
-elif command -v lsb_release > /dev/null; then
+  version=$(cat /etc/os-release | grep VERSION= | cut -d'"' -f2)
+elif command -v lsb_release &> /dev/null; then
   version=$(lsb_release -ds)
 fi
 
