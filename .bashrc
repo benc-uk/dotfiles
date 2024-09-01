@@ -117,33 +117,17 @@ fi
 # My personal stuff from here...
 ##################################################
 
-# Start SSH agent and add default key
-eval "$(ssh-agent -s)" > /dev/null
-ssh-add ~/.ssh/id_rsa 2> /dev/null
-
-# LS_COLORS
-LS_COLORS="ow=35:ln=31:di=32"
-export LS_COLORS
-
-# Extra aliases & env vars
-if [ -f "$HOME"/.aliases.rc ]; then source "$HOME"/.aliases.rc; fi
-if [ -f "$HOME"/.bashenv ]; then source "$HOME"/.bashenv; fi
-
-# Auto complete
-if command -v kubectl > /dev/null; then source <(kubectl completion bash); fi
-if command -v az > /dev/null; then source /etc/bash_completion.d/azure-cli; fi
-
-# Login banner thing
-if [ -f "$HOME"/.banner.rc ]; then source "$HOME"/.banner.rc; fi
+source "$HOME"/dotfiles/common.sh
 
 if [[ $BASIC_PROMPT != 1 ]]; then
-  # Fancy powerlevel like prompt, remove if you don't like it, or is slow
-  if [ -f "$HOME"/dotfiles/.bashprompt.rc ]; then source "$HOME"/dotfiles/.bashprompt.rc; fi
+  # Fancy powerlevel like prompt for non-zsh, remove if you don't like it, or is slow
+  if [ -f "$HOME"/dotfiles/bashprompt.sh ]; then source "$HOME"/dotfiles/bashprompt.sh; fi
 fi
 
-# Local overrides and post steps
-if [ -f "$HOME"/.local.rc ]; then source "$HOME"/.local.rc; fi
+if command -v kubectl > /dev/null; then source <(kubectl completion bash); fi
+
+if [ -f "$HOME"/.bashenv ]; then source "$HOME"/.bashenv; fi
 
 # ==============================================================================================
-# Anything after this line has been auto-added, and probably should be removed/moved
+# If you see anything after this line it's been auto-added, and probably should be removed/moved
 # ==============================================================================================

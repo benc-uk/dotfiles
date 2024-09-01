@@ -11,20 +11,32 @@ This shell configuration is unlikely to be to everyone's tastes 😁
 
 ## File Index
 
-- `bin/` – My personal bash scripts, helpers and other things. This is symlinked to `~/bin/`
-- `.aliases.rc` – All aliases go here (used with Bash and Zsh)
-- `.banner.rc` – Logon banner message (used with Bash and Zsh)
-- `.bashprompt.rc` – Bash prompt, like a poor mans p10k for Bash, disable with BASIC_PROMPT=1
+Main scripts
+
+- `install.sh` – Main install script
+
+The following files are aliased from ~/dotfiles into your $HOME directory when install.sh is run:
+
+- `bin/` – My personal bash scripts, helpers and other things. Quite a lot of junk TBH
 - `.bashrc` – Bash setup/startup script
-- `.env.rc` – Environmental vars and PATH settings, symlinked to `~/.bashenv` & `~/.zshenv`
 - `.gitconfig` – My personal git config
 - `.p10k.zsh` – Customized Powerlevel10k prompt settings
 - `.profile` – Untouched but synced just in case
 - `.zshrc` – Zsh setup/startup script, enables Oh My Zsh and Powerlevel10k
-- `backup.sh` – Git add, commit and push to GitHub
-- `install-zsh.sh` – Installs Zsh, and changes shell, tries to use sudo
-- `install.sh` – Main install script
-- `update.sh` – Pulls version from GitHub and overwrites local changes
+
+These files remain in ~/dotfiles but are referenced from from the rc start up scripts
+
+- `common.sh` – Called from both .bashrc and .zshrc as it contains commands common to both
+- `aliases.sh` – All aliases go here (used with Bash and Zsh)
+- `banner.sh` – Logon banner message (used with Bash and Zsh)
+- `bashprompt.sh` – Bash prompt, like a poor mans p10k for Bash, disable with BASIC_PROMPT=1
+- `env.sh` – Environmental vars and PATH settings, symlinked to `~/.bashenv` & `~/.zshenv`
+
+Helpers
+
+- `lib/backup.sh` – Git add, commit and push to GitHub
+- `lib/install-zsh.sh` – Installs Zsh, and changes shell, tries to use sudo
+- `lib/update.sh` – Pulls version from GitHub and overwrites local changes
 
 ## Usage
 
@@ -39,7 +51,7 @@ Install zsh if it's not already installed
 
 ```bash
 cd ~
-./dotfiles/install-zsh.sh
+./dotfiles/lib/install-zsh.sh
 ```
 
 Run install to set up the dotfiles symlinks etc

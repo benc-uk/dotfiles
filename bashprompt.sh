@@ -1,5 +1,7 @@
+#!/bin/bash
+
 #
-# Slow crude approximation to my Powerlevel-10k prompt, but for bash
+# Slow crude approximation to a Powerlevel-10k prompt, but for bash
 #
 
 PROMPT_COMMAND=__prompt_command

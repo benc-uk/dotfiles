@@ -6,7 +6,7 @@ random_fruit() {
 }
 
 DIR="$( cd "$( dirname "$BASH_SOURCE" )" && pwd )"
-cd "$DIR" || exit
+cd "$DIR/.." || exit
 
 echo -e "\e[34m»»» 📦 \e[32mBacking up dotfiles repo to GitHub\e[0m"
 

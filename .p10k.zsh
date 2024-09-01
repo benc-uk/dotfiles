@@ -342,7 +342,9 @@
   #
   typeset -g POWERLEVEL9K_DIR_CLASSES=(
     '~'            HOME     '🏠'
-    '~/dev(/*)#'   DEV      '💻'
+    '~/proj(/*)#'  DEV      '📻'
+    '~/work(/*)#'  WORK     '💻'
+    '~/temp(/*)#'  TEMP     '🧩'
     '/etc(/*)#'    ETC      '🔨'
     '*'            DEFAULT  '📁'
   )

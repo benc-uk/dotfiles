@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# This script is a fancy banner that shows a bunch of information about the environment
+# it is running in. It is designed to be sourced from your .bashrc or .zshrc file.
+
+# Function to lookup the environment we are running in
 environLookup() {
   if [[ -n $WSL_INTEROP ]]; then echo "Windows Subsystem for Linux v2 💚" && return 0; fi
   if [[ -n $WSL_DISTRO_NAME ]]; then echo "Windows Subsystem for Linux v1 💙" && return 0; fi
@@ -17,11 +21,13 @@ environLookup() {
 
 # Loop though the following eth0, wifi0, docker0, tap0 until we find a valid IP address
 declare -a interfaces=("eth0" "wifi0" "docker0" "tap0")
-declare ip="Unknown"
-for i in "${interfaces[@]}"; do
-  ip=$(ip addr show "$i" 2>/dev/null | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | head -n 1)
-  if [[ -n $ip ]]; then break; fi
-done
+declare ip="?.?.?.?"
+if which ip > /dev/null; then
+  for i in "${interfaces[@]}"; do
+    ip=$(ip addr show "$i" 2>/dev/null | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | head -n 1)
+    if [[ -n $ip ]]; then break; fi
+  done
+fi
 
 # Get public IP address and cache results
 declare publicip_cache_age=99900
@@ -49,11 +55,18 @@ elif command -v lsb_release &> /dev/null; then
   version=$(lsb_release -ds)
 fi
 
+# Get the uptime
+uptime="Unknown!"
+if command -v uptime &> /dev/null; then
+  uptime=$(uptime -p)
+fi
+
 # Show the banner
 echo -e "\e[38;5;192m╭─────── \e[38;5;202m$shelltype"
-echo -e "\e[38;5;155m├──❱ \e[38;5;135mEnviron: \e[38;5;45m$where"
-echo -e "\e[38;5;118m├──❱ \e[38;5;135mKernel:  \e[38;5;45m$(uname -r) 🚦"
-echo -e "\e[38;5;040m├──❱ \e[38;5;135mVersion: \e[38;5;45m$version 🥇"
-echo -e "\e[38;5;034m├──❱ \e[38;5;135mIP:      \e[38;5;45m$ip / $publicip 📡"
-echo -e "\e[38;5;028m╰──❱ \e[38;5;135mHost:    \e[38;5;45m$(hostname) 🏠"
+echo -e "\e[38;5;155m├──❱ \e[38;5;135m📻 Environ:  \e[38;5;45m$where"
+echo -e "\e[38;5;118m├──❱ \e[38;5;135m🥜 Kernel:  \e[38;5;45m $(uname -r)"
+echo -e "\e[38;5;040m├──❱ \e[38;5;135m🥇 OS:      \e[38;5;45m $version"
+echo -e "\e[38;5;034m├──❱ \e[38;5;135m📡 IP:      \e[38;5;45m $ip / $publicip"
+echo -e "\e[38;5;028m├──❱ \e[38;5;135m🏠 Host:    \e[38;5;45m $(hostname)"
+echo -e "\e[38;5;028m╰──❱ \e[38;5;135m🚦 Uptime:  \e[38;5;45m $uptime"
 echo -e ""

@@ -3,7 +3,7 @@
 echo -e "\n\e[38;5;135m╭───────────────────────────────────────────╮"
 echo -e "│\e[38;5;220m    Dotfiles, Oh My Zsh & P10k Installer \e[38;5;135m  │"
 echo -e "╰───────────────────────────────────────────╯"
-echo -e "\e[38;5;33mBen Coleman     \e[38;5;40mv1.2.0     🚀  🎁  💥\n"
+echo -e "\e[38;5;33mBen Coleman     \e[38;5;40mv1.3.0     🚀  🎁  💥\n"
 echo -e "\e[38;5;63m»»» 🙉\e[38;5;214m This script will remove & replace many of your personal dotfiles"
 echo -e "\e[38;5;63m»»» 🙊\e[38;5;214m If you have anything in these files, please back them up:"
 echo -e "\e[38;5;63m»»» 🙈   \e[37m.zshrc .zshenv .bashenv .p10k.zsh .gitconfig .profile .bashrc ~/bin"
@@ -67,14 +67,14 @@ if [ -f "/bin/zsh" ]; then
   echo -e "\e[38;5;45m»»» Zsh detected, setting up oh-my-zsh and powerlevel10k \e[0m"
   rm -rf "$HOME"/.oh-my-zsh
   # Use a local copy of the install script, as the URL is blocked in some environments
-  "$DOTFILE_DIR"/install-oh-my-zsh.sh --unattended
+  "$DOTFILE_DIR"/lib/install-oh-my-zsh.sh --unattended
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME"/.oh-my-zsh/custom/themes/powerlevel10k
   touch "$HOME"/.z
 fi
 
 # Create symlinks for all dotfiles and bin directory
-echo -e "\n\e[38;5;45m»»» Creating dotfile symlinks \e[0m"
-for f in .zshrc .p10k.zsh .profile .bashrc .aliases.rc .banner.rc bin
+echo -e "\n\e[38;5;45m»»» Creating symlinks \e[0m"
+for f in .zshrc .p10k.zsh .profile .bashrc bin
 do
   echo -e "\e[38;5;45m»»» 📃  ~/$f \e[0m--> \e[38;5;46m$DOTFILE_DIR/$f\e[0m"
   rm -rf "$HOME"/$f
@@ -83,10 +83,10 @@ done
 
 # Create symlinks for env file, depending on zsh or bash
 rm -f "$HOME"/.bashenv "$HOME"/.zshenv
-echo -e "\e[38;5;45m»»» 📃  ~/.bashenv \e[0m--> \e[38;5;46m$DOTFILE_DIR/.env.rc \e[0m"
-ln -s "$DOTFILE_DIR"/.env.rc "$HOME"/.bashenv
-echo -e "\e[38;5;45m»»» 📃  ~/.zshenv \e[0m--> \e[38;5;46m$DOTFILE_DIR/.env.rc \e[0m"
-ln -s "$DOTFILE_DIR"/.env.rc "$HOME"/.zshenv
+echo -e "\e[38;5;45m»»» 📃  ~/.bashenv \e[0m--> \e[38;5;46m$DOTFILE_DIR/env.sh \e[0m"
+ln -s "$DOTFILE_DIR"/env.sh "$HOME"/.bashenv
+echo -e "\e[38;5;45m»»» 📃  ~/.zshenv \e[0m--> \e[38;5;46m$DOTFILE_DIR/env.sh \e[0m"
+ln -s "$DOTFILE_DIR"/env.sh "$HOME"/.zshenv
 
 # If .local.rc doesn't exist, create it
 if [ ! -f "$HOME"/.local.rc ]; then
