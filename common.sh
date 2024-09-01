@@ -6,13 +6,13 @@
 if [ -f $HOME/dotfiles/banner.sh ]; then source $HOME/dotfiles/banner.sh; fi
 
 # Handle SSH agent if /usr/bin/ssh-agent is available
-if [ -f /usr/bin/ssh-agent ]; then
+# And not in a codespace
+if [ -f /usr/bin/ssh-agent ] && [ -z "$CODESPACES" ]; then
     SSH_AGENT_ENV="$HOME/.ssh/agent-environment"
     function start_agent {
         echo "Initialising new SSH agent..."
-        /usr/bin/ssh-agent | sed 's/^echo/#echo/' >"$SSH_AGENT_ENV"
-        echo "Succeeded!"
-        chmod 600 "$SSH_ENV"
+        /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "$SSH_AGENT_ENV"
+        chmod 600 "$SSH_AGENT_ENV"
         . "$SSH_AGENT_ENV" >/dev/null
         /usr/bin/ssh-add;
     }
