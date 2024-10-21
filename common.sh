@@ -8,6 +8,7 @@ if [ -f $HOME/dotfiles/banner.sh ]; then source $HOME/dotfiles/banner.sh; fi
 # Handle SSH agent if /usr/bin/ssh-agent is available
 # And not in a codespace
 if [ -f /usr/bin/ssh-agent ] && [ -z "$CODESPACES" ]; then
+    mkdir -p $HOME/.ssh
     SSH_AGENT_ENV="$HOME/.ssh/agent-environment"
     function start_agent {
         echo "Initialising new SSH agent..."
