@@ -37,6 +37,7 @@ fi
 # Cache results for 6 hours, as your IP doesn't change that often!
 if (( publicip_cache_age > (6*3600) )); then
   curl -m 1 -s -4 ifconfig.me > /tmp/publicip
+  if [[ $? -ne 0 ]]; then echo "?.?.?.?" > /tmp/publicip; fi
 fi
 publicip=$(cat /tmp/publicip)
 
