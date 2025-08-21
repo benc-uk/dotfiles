@@ -344,7 +344,7 @@
     '~'            HOME     '🏠'
     '~/proj(/*)#'  DEV      '🧩'
     '~/work(/*)#'  WORK     '💻'
-    '~/temp(/*)#'  TEMP     '🗑️'
+    '~/temp(/*)#'  TEMP     '🧪'
     '/etc(/*)#'    ETC      '🔨'
     '*'            DEFAULT  '📁'
   )

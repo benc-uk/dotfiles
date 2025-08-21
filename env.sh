@@ -27,3 +27,6 @@ PATH="$HOME/.dapr/bin:$PATH"
 
 # Rust
 PATH="$HOME/.cargo/bin:$PATH"
+
+# Deno
+PATH="$HOME/.deno/bin:$PATH"

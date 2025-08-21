@@ -36,8 +36,7 @@ if [[ -f /tmp/publicip ]]; then
 fi
 # Cache results for 6 hours, as your IP doesn't change that often!
 if (( publicip_cache_age > (6*3600) )); then
-  curl -m 1 -s -4 ifconfig.me > /tmp/publicip
-  if [[ $? -ne 0 ]]; then echo "?.?.?.?" > /tmp/publicip; fi
+  if ! curl --max-time 1 --silent --ipv4 ifconfig.me > /tmp/publicip; then echo "?.?.?.?" > /tmp/publicip; fi
 fi
 publicip=$(cat /tmp/publicip)
 
@@ -51,7 +50,7 @@ if [[ $0 =~ "bash" ]]; then shelltype="👍 Standard \e[38;5;226mBash \e[38;5;20
 # lsb_release might not be installed :/
 version="Unknown!"
 if test -f /etc/os-release; then
-  version=$(cat /etc/os-release | grep VERSION= | cut -d'"' -f2)
+  version=$(grep VERSION= /etc/os-release | cut -d'"' -f2)
 elif command -v lsb_release &> /dev/null; then
   version=$(lsb_release -ds)
 fi

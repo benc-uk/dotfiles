@@ -5,6 +5,12 @@ set -eou pipefail
 # Git add, commit and push script
 # ==========================================
 
+# Check if in a git repo
+if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+    echo "😫 Not inside a git repository!"
+    exit 1
+fi
+
 msg=$1
 if [ -z "$msg" ]
 then
@@ -12,7 +18,7 @@ then
     exit 1
 fi
 
-# get branch name
+# Get branch name
 branch=$(git rev-parse --abbrev-ref HEAD)
 
 if [ "$branch" = "master" ] || [ "$branch" = "main" ]
@@ -20,14 +26,14 @@ then
     echo "🚨 You are on master or main branch!"
 fi
 
-# get files changed
+# Get files changed
 files=$(git diff --name-only)
 echo "📄 Files changed: $(wc -l <<< "$files")"
 
 # Add changes to git
 git add .
 
-# get status
+# Get status
 status=$(git status --short)
 echo -e "$status"
 

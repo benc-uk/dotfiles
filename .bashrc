@@ -131,3 +131,7 @@ if [ -f "$HOME"/.bashenv ]; then source "$HOME"/.bashenv; fi
 # ==============================================================================================
 # If you see anything after this line it's been auto-added, and probably should be removed/moved
 # ==============================================================================================
+
+export PATH=$PATH:/usr/local/go/bin
+
+export PATH=$PATH:/usr/local/go/bin
