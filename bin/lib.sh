@@ -36,7 +36,3 @@ warning() {
     echo -e "\e[38;5;63m»»» 😇 \e[36mOK exiting now. Bye!\n\e[0m" && exit 1 || return 1 
   fi
 }
-
-# banner "System Nuker 3000" "box" "💥" "💥"
-
-# warning "This will destroy the universe!"

@@ -135,3 +135,5 @@ if [ -f "$HOME"/.bashenv ]; then source "$HOME"/.bashenv; fi
 export PATH=$PATH:/usr/local/go/bin
 
 export PATH=$PATH:/usr/local/go/bin
+
+export PATH=$PATH:/usr/local/go/bin

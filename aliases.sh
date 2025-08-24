@@ -32,12 +32,12 @@ alias pub-ip='echo -e "$(curl -sSL ifconfig.me)"'
 #alias dnsfix='echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf'
 #alias ntpsync='sudo ntpdate time.windows.com'
 
-# Docker
+# Docker & Containers
 #alias docker-start='sudo /etc/init.d/docker start'
 #alias docker-stop='sudo /etc/init.d/docker stop'
-alias docker-prune='docker container prune -f && docker image prune -f && docker volume prune -f && docker buildx prune -f'
-alias docker-wipe='docker buildx prune -a && docker image prune -a'
-alias docker-clean='docker rm -f $(docker ps -a -q)'
+alias container-prune='docker container prune -f && docker image prune -f && docker volume prune -f && docker buildx prune -f'
+alias container-wipe='docker system prune -a --volumes -f'
+#alias docker-clean='docker rm -f $(docker ps -a -q)'
 
 # Git & GitHub
 alias g='git'
@@ -49,3 +49,35 @@ alias az-nuke='az group delete --no-wait --yes -g'
 # Node
 alias npm-clean='rm -rf node_modules && rm -rf package-lock.json && npm install'
 
+# Extra functions, needs fzf installed
+# fkill: interactively kill processes
+fkill() {
+    if ! command -v fzf > /dev/null 2>&1; then
+        echo "fzf is not installed. Please install fzf to use this function."
+        return 1
+    fi
+    local pid 
+    if [ "$UID" != "0" ]; then
+        pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+    else
+        pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+    fi  
+
+    if [ "x$pid" != "x" ]
+    then
+        echo $pid | xargs kill -${1:-9}
+    fi  
+}
+
+# fbr: interactively checkout git branches
+fbr() {
+  if ! command -v fzf > /dev/null 2>&1; then
+      echo "fzf is not installed. Please install fzf to use this function."
+      return 1
+  fi
+  local branches branch
+  branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}

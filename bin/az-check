@@ -11,11 +11,12 @@ if [ -z "$SUB_ID" ]; then
 fi
 
 SUB_NAME=$(az account show --query name -o tsv)
+TENANT_NAME=$(az account show --query tenantDisplayName -o tsv)
 TENANT_ID=$(az account show --query tenantId -o tsv)
 
-echo -e "⛅ \e[34mActive Azure subscription: \e[0m"
-echo -e "  📰 \e[34mSubscription: \e[33m$SUB_NAME ($SUB_ID)\e[0m"
-echo -e "  🔐 \e[34mTenant:       \e[33m$TENANT_ID\e[0m"
+echo -e "🔅 \e[34mActive Azure Session: \e[0m"
+echo -e "  🔑 \e[34mSubscription: \e[33m$SUB_NAME\n\t\t   $SUB_ID\e[0m"
+echo -e "  🌐 \e[34mTenant:       \e[33m$TENANT_NAME\n\t\t   $TENANT_ID\e[0m"
 
 echo -e -n "🤚 \e[95mIf these details are incorrect, press ctrl+c now to exit\n   Or any other key to continue...\e[0m"
 read -n 1 -s -r -p ""
