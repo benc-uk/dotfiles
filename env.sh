@@ -19,8 +19,9 @@ PATH="$HOME/.npm-global/bin:$HOME/bin:$HOME/.local/bin:$PATH"
 # Note. GOPATH is left as $HOME/go, add $GOPATH/bin & /usr/local/go/bin to path
 PATH="$HOME/go/bin:/usr/local/go/bin:$PATH"
 
-# Dotnet Core (global tools)
+# Dotnet (global tools)
 PATH="$HOME/.dotnet/tools:$PATH"
+export DOTNET_ROOT="$HOME/.dotnet"
 
 # Dapr (Only required after running `dapr init`)
 PATH="$HOME/.dapr/bin:$PATH"

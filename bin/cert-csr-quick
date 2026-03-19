@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Quickly create a new CSR with a new key
+
+DOMAIN=${1:-"blah.example.net"}
+FILE_BASENAME=${2:-"example_net"}
+LOCATION="London"
+COUNTRY="GB"
+ORG="Damage Inc."
+
+openssl req -new -newkey rsa:2048 -nodes \
+-out "${FILE_BASENAME}.csr" \
+-keyout "${FILE_BASENAME}.key" \
+-subj "/C=${COUNTRY}/ST=/L=${LOCATION}/O=${ORG}/CN=${DOMAIN}"
