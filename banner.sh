@@ -19,14 +19,11 @@ environLookup() {
   echo "Some Linux system 🤷"
 }
 
-# Loop though the following eth0, wifi0, docker0, tap0 until we find a valid IP address
-declare -a interfaces=("eth0" "wifi0" "docker0" "tap0")
+# Get local IP address from the default route interface
 declare ip="?.?.?.?"
-if which ip > /dev/null; then
-  for i in "${interfaces[@]}"; do
-    ip=$(ip addr show "$i" 2>/dev/null | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | head -n 1)
-    if [[ -n $ip ]]; then break; fi
-  done
+if command -v ip > /dev/null; then
+  ip=$(ip -4 route get 1.1.1.1 2>/dev/null | grep -oP '(?<=src\s)\d+(\.\d+){3}' | head -n 1)
+  if [[ -z $ip ]]; then ip="?.?.?.?"; fi
 fi
 
 # Get public IP address and cache results
