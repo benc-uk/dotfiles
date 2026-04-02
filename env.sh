@@ -31,3 +31,6 @@ PATH="$HOME/.cargo/bin:$PATH"
 
 # Deno
 PATH="$HOME/.deno/bin:$PATH"
+
+# Agency
+PATH="$HOME/.config/agency/CurrentVersion:$PATH"

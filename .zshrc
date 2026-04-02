@@ -43,3 +43,10 @@ if command -v kubectl > /dev/null; then source <(kubectl completion zsh); fi
 # ==============================================================================================
 
 
+
+# bun completions
+[ -s "/home/ben/.bun/_bun" ] && source "/home/ben/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

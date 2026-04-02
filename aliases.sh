@@ -29,11 +29,6 @@ alias venv-del='deactivate && rm -rf .venv'
 # Linux stuff
 alias pub-ip='echo -e "$(curl -sSL ifconfig.me)"'
 
-# Old WSL2 workarounds, commented out now the clock sync is fixed
-#alias timesync='sudo hwclock -s'
-#alias dnsfix='echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf'
-#alias ntpsync='sudo ntpdate time.windows.com'
-
 # Docker & Containers
 #alias docker-start='sudo /etc/init.d/docker start'
 #alias docker-stop='sudo /etc/init.d/docker stop'
