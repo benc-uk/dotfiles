@@ -3,11 +3,8 @@ alias k='kubectl'
 #alias kn='kubectl config set-context --current --namespace '
 alias kn='kubens'
 alias kc='kubectx'
-#alias helm-clean='helm ls --short | xargs -L1 helm delete'
 alias kgp='kubectl get pods'
-alias kgs='kubectl get svc'
-alias kgn='kubectl get nodes'
-alias kga='kubectl get pods,svc,ing'
+alias kga='kubectl get pods,svc,deployments'
 alias klog='kubectl logs -f'
 alias kd='kubectl describe'
 
@@ -18,6 +15,7 @@ alias gmt='go mod tidy'
 alias winexplore='/mnt/c/Windows/SysWOW64/explorer.exe .'
 alias co='copilot'
 alias ask='copilot --yolo -p '
+alias acp='agency cp --no-default-mcps'
 # This undoes some crap that ohmyzsh does to grep
 alias grep='grep --color=auto'
 
@@ -30,11 +28,9 @@ alias venv-del='deactivate && rm -rf .venv'
 alias pub-ip='echo -e "$(curl -sSL ifconfig.me)"'
 
 # Docker & Containers
-#alias docker-start='sudo /etc/init.d/docker start'
-#alias docker-stop='sudo /etc/init.d/docker stop'
 alias container-prune='docker container prune -f && docker image prune -f && docker volume prune -f && docker buildx prune -f'
 alias container-wipe='docker system prune -a --volumes -f'
-#alias docker-clean='docker rm -f $(docker ps -a -q)'
+alias docker-clean='docker rm -f $(docker ps -a -q)'
 
 # Git & GitHub
 alias g='git'
@@ -42,6 +38,8 @@ alias gh-open='gh repo view --web'
 
 # Azure CLI
 alias az-nuke='az group delete --no-wait --yes -g'
+alias az-tenant="az rest --method get --url \"https://management.azure.com/tenants?api-version=2020-01-01\" \
+   --query \"value[?tenantId=='\$(az account show --query tenantId -o tsv)'].displayName\" -o tsv"
 
 # Node
 alias npm-clean='rm -rf node_modules && rm -rf package-lock.json && npm install'
