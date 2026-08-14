@@ -29,3 +29,9 @@ fi
 # ==============================================================================================
 # If you see anything after this line it's been auto-added, and probably should be removed/moved
 # ==============================================================================================
+
+# Added by WorkPilot installer
+export PATH="$HOME/.local/bin:$PATH"
+
+# Added by WorkPilot installer
+export PATH="/home/ben/.local/bin:$PATH"

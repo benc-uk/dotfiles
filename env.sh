@@ -10,6 +10,9 @@ export DOCKER_BUILDKIT=1
 # Prevent Python dumbness
 export PIP_REQUIRE_VIRTUALENV=true
 
+# Colourz plz
+export COLORTERM=truecolor
+
 #
 # Extra paths ============================================================
 #

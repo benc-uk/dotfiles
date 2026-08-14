@@ -19,8 +19,10 @@ plugins=(
   encode64
   #helm
   z
-  web-search
+  #web-search
   zsh-autosuggestions
+  gh
+  virtualenv
 )
 
 # Now enable oh-my-zsh
@@ -50,3 +52,12 @@ if command -v kubectl > /dev/null; then source <(kubectl completion zsh); fi
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Added by WorkPilot installer
+export PATH="$HOME/.local/bin:$PATH"
+
+# Added by WorkPilot installer
+export PATH="/home/ben/.local/bin:$PATH"
+
+# opencode
+export PATH=/home/ben/.opencode/bin:$PATH

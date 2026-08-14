@@ -43,6 +43,7 @@ alias az-tenant="az rest --method get --url \"https://management.azure.com/tenan
 
 # Node
 alias npm-clean='rm -rf node_modules && rm -rf package-lock.json && npm install'
+alias ncu='npx npm-check-updates'
 
 # Extra functions, needs fzf installed
 # fkill: interactively kill processes

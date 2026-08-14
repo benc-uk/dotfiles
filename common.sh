@@ -6,8 +6,8 @@
 if [ -f $HOME/dotfiles/banner.sh ]; then source $HOME/dotfiles/banner.sh; fi
 
 # Handle SSH agent if /usr/bin/ssh-agent is available
-# And not in a codespace
-if [ -f /usr/bin/ssh-agent ] && [ -z "$CODESPACES" ]; then
+# And not in a codespace, and not already using a Dev Containers forwarded agent socket
+if [ -f /usr/bin/ssh-agent ] && [ -z "$CODESPACES" ] && [[ "$SSH_AUTH_SOCK" != /tmp/vscode-ssh-auth-* ]]; then
     mkdir -p $HOME/.ssh
     SSH_AGENT_ENV="$HOME/.ssh/agent-environment"
     function start_agent {
