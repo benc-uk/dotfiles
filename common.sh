@@ -36,7 +36,9 @@ export LS_COLORS="ow=35:ln=36:di=32"
 if [ -f $HOME/dotfiles/aliases.sh ]; then source $HOME/dotfiles/aliases.sh; fi
 
 # Auto complete 
-if command -v az > /dev/null; then source /etc/bash_completion.d/azure-cli; fi
+if command -v az > /dev/null && [ -r /etc/bash_completion.d/azure-cli ]; then
+    source /etc/bash_completion.d/azure-cli
+fi
 
 # Local overrides, secrets and post steps 
 if [ -f $HOME/.local.rc ]; then source $HOME/.local.rc; fi
